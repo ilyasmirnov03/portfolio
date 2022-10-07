@@ -1,0 +1,51 @@
+
+/*=============================================
+=            Global Declarations              =
+=============================================*/
+
+html {
+    font-size:20px;
+}
+
+* {
+    box-sizing: border-box;
+    border-radius: 0.5rem;
+}
+
+
+/*=============================================
+=            Main Styles                      =
+=============================================*/
+
+body {
+    background-color: #313131;
+    margin:0;
+    padding:0;
+}
+
+.darker {
+    background-color: #2e2e2e;
+    box-shadow: inset 0 0 1rem 0.1rem #313131;
+}
+
+/*=============================================
+=            Utility Classes                  =
+=============================================*/
+
+.flex {
+    display:flex;
+}
+
+/*=============================================
+=            Presentation Section             =
+=============================================*/
+
+#presentation-section {
+    width:100vw;
+    height:100vh;
+}
+
+#image-holder {
+    height:80%;
+    width:30%;
+}
