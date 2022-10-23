@@ -1,31 +1,103 @@
+/*=============================================
+=            Fonts                            =
+=============================================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400&family=Secular+One&display=swap');
 
 /*=============================================
 =            Global Declarations              =
 =============================================*/
 
 html {
-    font-size:20px;
+    font-size: 20px;
 }
 
 * {
     box-sizing: border-box;
     border-radius: 0.5rem;
+    font-family: 'Lexend', sans-serif;
+    list-style-type: none;
 }
 
+:root {
+    --light-theme: #fff;
+    --dark-theme: #0e0e0e;
+}
+
+
+/*=============================================
+=            Animations                       =
+=============================================*/
+
+@keyframes falling-x {
+    0% {
+        transform: translateY(0%) rotate(90deg);
+    }
+
+    100% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}
+
+@keyframes go-forward {
+    from {
+        transform: scale(100%);
+    }
+
+    to {
+        transform: scale(200%);
+        filter: blur(30px);
+        opacity: 0;
+    }
+}
+
+@keyframes go-backward {
+    from {
+        transform: scale(100%);
+    }
+
+    to {
+        transform: scale(50%);
+        filter: blur(30px);
+        opacity: 0;
+    }
+}
+
+.go-forward {
+    animation: go-forward forwards 1s;
+}
+
+.go-backward {
+    animation: go-backward forwards 1s;
+}
+
+.return-init-backward {
+    animation: go-forward reverse forwards 1s;
+}
+
+.return-init-forward {
+    animation: go-backward reverse forwards 1s;
+}
 
 /*=============================================
 =            Main Styles                      =
 =============================================*/
 
 body {
-    background-color: #313131;
-    margin:0;
-    padding:0;
+    background-color: var(--light-theme);
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
 }
 
-.darker {
-    background-color: #2e2e2e;
-    box-shadow: inset 0 0 1rem 0.1rem #313131;
+.falling-x {
+    position: absolute;
+    pointer-events: none;
+    font-size: 2rem;
+    opacity: .2;
+    animation: 2s forwards falling-x;
+    z-index: 100;
 }
 
 /*=============================================
@@ -33,19 +105,86 @@ body {
 =============================================*/
 
 .flex {
-    display:flex;
+    display: flex;
+}
+
+.justify-center {
+    display: flex;
+    justify-content: center;
+}
+
+.align-center {
+    display: flex;
+    align-items: center;
+}
+
+.main-wrapper {
+    padding: 0 7rem;
+}
+
+.page {
+    height: 100vh;
+    position: absolute;
+    background-color: var(--light-theme);
+}
+
+
+/*=============================================
+=            Header                           =
+=============================================*/
+
+#main-header {
+    width: 100%;
+    position: fixed;
+    justify-content: end;
+    padding: 0.2rem 2rem;
+}
+
+#main-header>nav {
+    position: relative;
+}
+
+#main-nav>li {
+    letter-spacing: 0.6rem;
+    font-size: 2rem;
+    margin-right: 4.5rem;
+}
+
+#plus {
+    position: absolute;
+    font-size: 5rem;
+    bottom: -50%;
+    left: -5%;
 }
 
 /*=============================================
-=            Presentation Section             =
+=            Landing Section                  =
 =============================================*/
 
-#presentation-section {
-    width:100vw;
-    height:100vh;
+#landing {
+    align-items: center;
+    z-index: 10;
 }
 
 #image-holder {
-    height:80%;
-    width:30%;
+    height: 80%;
+    width: 30%;
+}
+
+#landing h1 {
+    font-size: 4rem;
+    font-family: 'Secular one';
+}
+
+#landing p {
+    font-size: 2rem;
+}
+
+
+/*=============================================
+=            About                            =
+=============================================*/
+
+#about {
+    z-index: 9;
 }
