@@ -1,4 +1,8 @@
 (function () {
+    /* ========
+    TODO: apply z-index to pages here
+    TODO: apply style display:none to all pages but the first here
+    ======= */
     const PFAPP = {
         allSections: document.querySelectorAll(".page"),
         currentSection: 0,
@@ -45,16 +49,20 @@
                 as[cs + 1].classList.add("return-init-forward")
                 as[cs + 1].style.display = "flex";
 
-                as[cs].addEventListener("animationend", () => {
-                    as[cs].style.display = "none";
+                cs += 1;
 
-                    // remove no more needed classes
-                    as[cs].classList.remove("go-forward");
-                    as[cs + 1]?.classList.remove("return-init-forward");
-                    cs += 1;
+                // actions on prev section 
+                setTimeout(() => {
+                    as[cs - 1].style.display = "none";
+                    // remove no more needed classes in previous section
+                    as[cs - 1].classList.remove("go-forward");
+                    //remove in the current
+                    as[cs].classList.remove("return-init-forward");
+                    as[cs].classList.remove("go-backward");
+
                     PFAPP.currentSection = cs;
-                });
-                setTimeout(() => { PFAPP.enableScroll = true }, 1000);
+                    PFAPP.enableScroll = true
+                }, 1000);
             }
 
             // UP SCROLL
@@ -67,17 +75,23 @@
                 as[cs].classList.add("go-backward");
                 // prev section goes to its place
                 as[cs - 1].classList.add("return-init-backward");
-                as[cs - 1].style.display = "flex"
+                as[cs - 1].style.display = "flex";
 
+                cs -= 1;
 
-                // when transition ends -> init current section
-                as[cs].addEventListener("animationend", () => {
-                    cs -= 1;
-                    PFAPP.currentSection = cs;
+                // actions on prev section 
+                setTimeout(() => {
+                    as[cs + 1].style.display = "none";
+                    //remove no more needed classes in prev section
+                    as[cs + 1].classList.remove("return-init-backward");
+                    as[cs + 1].classList.remove("go-forward");
+
+                    // remove in the current
                     as[cs].classList.remove("return-init-backward");
-                    as[cs].classList.remove("go-forward");
-                });
-                setTimeout(() => { PFAPP.enableScroll = true }, 1000);
+
+                    PFAPP.currentSection = cs;
+                    PFAPP.enableScroll = true;
+                }, 1000);
             }
             // timeout with animation time
         },

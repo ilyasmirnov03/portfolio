@@ -124,6 +124,7 @@ body {
 
 .page {
     height: 100vh;
+    width:100%;
     position: absolute;
     background-color: var(--light-theme);
 }
@@ -138,6 +139,7 @@ body {
     position: fixed;
     justify-content: end;
     padding: 0.2rem 2rem;
+    z-index:200;
 }
 
 #main-header>nav {
@@ -166,11 +168,6 @@ body {
     z-index: 10;
 }
 
-#image-holder {
-    height: 80%;
-    width: 30%;
-}
-
 #landing h1 {
     font-size: 4rem;
     font-family: 'Secular one';
@@ -187,4 +184,13 @@ body {
 
 #about {
     z-index: 9;
+}
+
+
+/*=============================================
+=            Skills                           =
+=============================================*/
+
+#skills {
+    z-index: 8;
 }
