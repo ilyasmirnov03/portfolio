@@ -26,6 +26,7 @@ p {
 :root {
     --light-theme: #fff;
     --dark-theme: #0e0e0e;
+    --complimentary: #5dc774;
     --animation-time: 1s;
 }
 
@@ -144,8 +145,11 @@ body {
 .page {
     height: 100vh;
     width: 100%;
-    position: absolute;
     background-color: var(--light-theme);
+}
+
+.page.custom-scroll {
+    position: absolute;
 }
 
 
@@ -198,6 +202,18 @@ body {
 #landing h1 {
     font-size: 4.6rem;
     font-family: 'Secular one';
+    padding-left: 1rem;
+    width: fit-content;
+
+    --b: 4px;
+    --c: var(--dark-theme);
+    --w: 1rem;
+    border: var(--b) solid #0000;
+    --_g: #0000 90deg, var(--c) 0;
+    --_p: var(--w) var(--w) border-box no-repeat;
+    background:
+        conic-gradient(from 180deg at top var(--b) right var(--b), var(--_g)) 100% 0 / var(--_p),
+        conic-gradient(from 0deg at bottom var(--b) left var(--b), var(--_g)) 0 100% / var(--_p);
 }
 
 #landing p:nth-child(1) {
@@ -209,25 +225,29 @@ body {
 }
 
 #landing-btns {
-    margin-top:2rem;
+    margin-top: 2rem;
 }
 
 #landing-btns>a {
-    background-color: #0e0e0e;
+    background-color: var(--dark-theme);
     padding: 0.5rem;
     border-radius: 0.5rem;
     color: white;
     transition: .33s ease-in-out;
-    margin-right:1rem;
+    margin-right: 1rem;
 }
 
 #landing-btns>a:hover {
-    background-color: #5dc774;
+    background-color: var(--complimentary);
 }
 
 .icons-showoff {
     font-size: 8rem;
     padding-top: 4rem;
+}
+
+.icons-showoff>div {
+    height: fit-content;
 }
 
 /*=============================================
