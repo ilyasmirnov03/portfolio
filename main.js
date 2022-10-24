@@ -50,11 +50,11 @@
             let as = PTF.allSections;
             let cs = PTF.currentSection;
 
+            // If can't perform scroll -> return
             if (!PTF.enableScroll) return;
 
             // DOWN SCROLL
-            if (e.deltaY === 100) {
-                if (cs === as.length - 1) return;
+            if (e.deltaY === 100 && cs !== as.length - 1) {
 
                 PTF.enableScroll = false;
 
@@ -81,8 +81,7 @@
             }
 
             // UP SCROLL
-            if (e.deltaY === -100) {
-                if (cs === 0) return;
+            if (e.deltaY === -100 && cs !== 0) {
 
                 PTF.enableScroll = false;
 
@@ -113,7 +112,8 @@
 
         //Event listeners
         handlers: function (e) {
-            document.addEventListener("mousemove", PTF.mouseMoveEffect);
+            /* uncomm   ent when done */
+            // document.addEventListener("mousemove", PTF.mouseMoveEffect);
 
             document.addEventListener("wheel", PTF.scroll);
         }
