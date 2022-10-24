@@ -18,24 +18,35 @@
 
   <body>
     <!-- header -->
-    <header id="main-header" class="flex">
-      <nav>
-        <div id="plus">+</div>
-        <ul id="main-nav" class="align-center">
-          <li>contact</li>
+    <header id="main-header">
+      <nav class="justify-center">
+        <ul id="main-nav">
           <li>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              x="0px"
-              y="0px"
-              width="48"
-              height="48"
+              width="24"
+              height="24"
               viewBox="0 0 24 24"
-              style="fill: #000000"
             >
               <path
-                d="M 11 0 L 11 3 L 13 3 L 13 0 L 11 0 z M 4.2226562 2.8085938 L 2.8085938 4.2226562 L 4.9296875 6.34375 L 6.34375 4.9296875 L 4.2226562 2.8085938 z M 19.777344 2.8085938 L 17.65625 4.9296875 L 19.070312 6.34375 L 21.191406 4.2226562 L 19.777344 2.8085938 z M 12 5 C 8.1458514 5 5 8.1458514 5 12 C 5 15.854149 8.1458514 19 12 19 C 15.854149 19 19 15.854149 19 12 C 19 8.1458514 15.854149 5 12 5 z M 12 7 C 14.773268 7 17 9.2267316 17 12 C 17 14.773268 14.773268 17 12 17 C 9.2267316 17 7 14.773268 7 12 C 7 9.2267316 9.2267316 7 12 7 z M 0 11 L 0 13 L 3 13 L 3 11 L 0 11 z M 21 11 L 21 13 L 24 13 L 24 11 L 21 11 z M 4.9296875 17.65625 L 2.8085938 19.777344 L 4.2226562 21.191406 L 6.34375 19.070312 L 4.9296875 17.65625 z M 19.070312 17.65625 L 17.65625 19.070312 L 19.777344 21.191406 L 21.191406 19.777344 L 19.070312 17.65625 z M 11 21 L 11 24 L 13 24 L 13 21 L 11 21 z"
+                d="M0 12c0 6.627 5.373 12 12 12s12-5.373 12-12-5.373-12-12-12-12 5.373-12 12zm2 0c0-5.514 4.486-10 10-10v20c-5.514 0-10-4.486-10-10z"
               ></path>
+            </svg>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+              <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+              <path
+                d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"
+              />
+            </svg>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+              <path
+                d="M0 128C0 92.65 28.65 64 64 64H448C483.3 64 512 92.65 512 128V384C512 419.3 483.3 448 448 448H64C28.65 448 0 419.3 0 384V128zM48 128V150.1L220.5 291.7C241.1 308.7 270.9 308.7 291.5 291.7L464 150.1V127.1C464 119.2 456.8 111.1 448 111.1H64C55.16 111.1 48 119.2 48 127.1L48 128zM48 212.2V384C48 392.8 55.16 400 64 400H448C456.8 400 464 392.8 464 384V212.2L322 328.8C283.6 360.3 228.4 360.3 189.1 328.8L48 212.2z"
+              />
             </svg>
           </li>
         </ul>
@@ -45,8 +56,23 @@
       <!-- landing -->
       <div id="landing" class="page flex main-wrapper">
         <div>
-          <h1>ilya smirnov_</h1>
-          <p>Developpeur Front End.</p>
+          <h1>ilya smirnov<span class="blinking">_</span></h1>
+          <div id="landing-text">
+            <p>Développeur Front End.</p>
+            <p>
+              Je développe des sites web en utilisant JavaScript et PHP. Je crée
+              des designs purs et créatifs, et j'adore essayer des choses
+              inattendues.
+            </p>
+            <div id="landing-btns">
+              <a href="">cv</a>
+              <a href="">contact</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="icons-showoff justify-center">
+          <i class="fa-solid fa-code"></i>
         </div>
       </div>
 
