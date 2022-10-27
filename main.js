@@ -62,7 +62,7 @@
                 as[cs].classList.add("go-forward");
                 // next section goes forward taking its place
                 as[cs + 1].classList.add("return-init-forward")
-                as[cs + 1].style.display = "flex";
+                as[cs + 1].style.display = "block";
 
                 cs += 1;
 
@@ -89,7 +89,7 @@
                 as[cs].classList.add("go-backward");
                 // prev section goes to its place
                 as[cs - 1].classList.add("return-init-backward");
-                as[cs - 1].style.display = "flex";
+                as[cs - 1].style.display = "block";
 
                 cs -= 1;
 
