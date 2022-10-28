@@ -18,16 +18,11 @@
 
   <body>
     <!-- header -->
-    <header id="main-header">
-      <nav class="justify-center">
-        <ul id="main-nav">
+    <header id="header">
+      <nav class="justify-center flex">
+        <ul id="socials">
           <li>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-            >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
               <path
                 d="M0 12c0 6.627 5.373 12 12 12s12-5.373 12-12-5.373-12-12-12-12 5.373-12 12zm2 0c0-5.514 4.486-10 10-10v20c-5.514 0-10-4.486-10-10z"
               ></path>
@@ -50,8 +45,26 @@
             </svg>
           </li>
         </ul>
+        <ol id="navigation">
+          <li class="active-section">
+            <a data-section="0" href="#landing">accueil</a>
+          </li>
+          <li>
+            <a data-section="1" href="#projects">projets</a>
+          </li>
+          <li>
+            <a data-section="2" href="#about">à propos</a>
+          </li>
+          <li>
+            <a data-section="3" href="#resume">résumé</a>
+          </li>
+          <li>
+            <a data-section="4" href="#contact">contact</a>
+          </li>
+        </ol>
       </nav>
     </header>
+
     <main>
       <!-- landing -->
       <section id="landing" class="page custom-scroll">
@@ -59,8 +72,7 @@
           ilya smirnov<span class="blinking">_</span>
         </h1>
 
-        <div class="flex main-wrapper">
-          
+        <div class="flex">
           <div id="landing-text">
             <h2>Développeur Front End.</h2>
             <p>
@@ -69,23 +81,28 @@
               inattendues.
             </p>
           </div>
-          <div id="landing-btns">
+          <nav id="landing-btns">
             <ol>
               <li>
-                <a href="">a propos</a>
+                <a data-section="1" href="#projects">projets</a>
               </li>
               <li>
-                <a href="">cv</a>
+                <a data-section="2" href="#about">à propos</a>
               </li>
               <li>
-                <a href="">contact</a>
+                <a data-section="3" href="#resume">résumé</a>
               </li>
               <li>
-                <a href="">projets</a>
+                <a data-section="4" href="#contact">contact</a>
               </li>
             </ol>
-          </div>
+          </nav>
         </div>
+      </section>
+
+      <!-- projects -->
+      <section id="projects" class="page custom-scroll">
+        <h1 class="section-title">projets</h1>
       </section>
 
       <!-- about -->
@@ -93,10 +110,13 @@
         <h1 class="section-title">moi</h1>
       </section>
 
-      <!-- skills -->
-      <div id="skills" class="page custom-scroll">
-        <h1>successfull... OR NOT????</h1>
-      </div>
+      <section id="resume" class="page custom-scroll">
+        <h1 class="section-title">resume</h1>
+      </section>
+
+      <section id="contact" class="page custom-scroll">
+        <h1 class="section-title">contact</h1>
+      </section>
     </main>
   </body>
 </html>
