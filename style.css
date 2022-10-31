@@ -28,6 +28,7 @@ Media Queries
 
 html {
     font-size: 20px;
+    scroll-behavior: smooth;
 }
 
 * {
@@ -119,9 +120,15 @@ html {
 
 body {
     background-color: var(--light-theme);
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scrollbar-width: none;
     margin: 0;
     padding: 0;
+}
+
+body::-webkit-scrollbar {
+    display: none;
 }
 
 .falling-x {
@@ -162,6 +169,10 @@ body {
 }
 
 .page.custom-scroll {
+    position: fixed;
+}
+
+.page.custom-scroll.normal-scroll {
     position: absolute;
 }
 
@@ -174,18 +185,38 @@ body {
     margin: 0 0 10vh 0;
 }
 
-
 /*=============================================
 =            Header                           =
 =============================================*/
+
+#menu-bar {
+    display: none;
+    position: fixed;
+    top: 2.5%;
+    right: 5%;
+    z-index: 202;
+}
+
+#blackened {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    background-color: rgba(20, 20, 20, 0.322);
+    opacity: 0;
+    transition: .33s ease-in-out;
+}
 
 #header {
     height: 100%;
     position: fixed;
     right: 0;
-    padding: 0.2rem 2rem;
+    padding: 0.2rem 1.7rem;
     z-index: 200;
     box-shadow: -1px 5px 5px rgba(63, 63, 63, 0.25);
+    transition: .33s ease-in-out;
+    background-color: var(--light-theme);
 }
 
 #header li {
@@ -202,8 +233,7 @@ body {
 }
 
 #socials>li {
-    letter-spacing: 0.6rem;
-    font-size: 2rem;
+    margin-bottom: 2vh;
     text-align: center;
 }
 
@@ -219,6 +249,7 @@ body {
 
 #navigation>li::before {
     content: "0" counter(item);
+    font-size: 1rem;
 }
 
 #navigation>li>a {
@@ -229,7 +260,7 @@ body {
     left: -75%;
     width: 5rem;
     background-color: var(--dark-theme);
-    font-size: 0.8vw;
+    font-size: 0.7rem;
     padding: 0.5rem;
     border-radius: 0.5rem;
     color: white;
@@ -241,7 +272,7 @@ body {
 }
 
 .active-section {
-    opacity:0.5;
+    opacity: 0.5;
     pointer-events: none;
 }
 
@@ -258,51 +289,37 @@ body {
 }
 
 #landing h2 {
-    font-size: 7vw;
-    line-height: 7vw;
+    font-size: 6rem;
+    line-height: 6rem;
     font-family: 'Oswald';
     font-weight: 300;
     margin-bottom: 2rem;
     margin-top: 0;
-    opacity: .66;
 }
 
 #landing p {
-    font-size: 2.1vw;
+    font-size: 1.9rem;
     font-weight: 300;
     width: 66%;
     text-align: justify;
 }
 
-#landing-btns {
-    margin-top: 2rem;
-    flex-wrap: wrap;
+#landing-icons {
+    margin-top: 7.4vh;
+    opacity: .25;
+    width: 23%;
+    font-size: 27vw;
+    justify-content: flex-end;
+    align-items: flex-end;
 }
 
-#landing-btns>ol>li>a {
-    background-color: var(--dark-theme);
-    font-size: 2vw;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    color: white;
-    transition: .33s ease-in-out;
-}
 
-#landing-btns>ol>li {
-    margin-bottom: 2rem;
-}
+/*=============================================
+=            Projects                         =
+=============================================*/
 
-#landing-btns>ol>li>a:hover {
-    background-color: var(--complimentary);
-}
-
-#landing ol li {
-    counter-increment: item 1;
-}
-
-#landing-btns>ol>li::before {
-    content: "0" counter(item) ".";
-    margin-right: 1rem;
+#projects {
+    height: fit-content;
 }
 
 
@@ -321,3 +338,68 @@ body {
 /*=============================================
 =            Media Queries                    =
 =============================================*/
+
+@media screen and (max-width:830px) {
+    #landing h2 {
+        font-size: 16vw;
+        line-height: 16vw;
+    }
+
+    #landing p {
+        font-size: 1.4rem;
+    }
+}
+
+
+/*----------  Mobile  ----------*/
+
+
+@media screen and (max-width:591px) {
+
+    .active-section {
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    #menu-bar {
+        display: block;
+    }
+
+    #header {
+        padding-top: 2rem;
+        transform: translateX(100%);
+    }
+
+    #navigation>li::before {
+        font-size: 5vw;
+    }
+
+    .page.custom-scroll,
+    .page.custom-scroll.normal-scroll {
+        display: block;
+        position: relative;
+    }
+
+    .section-title {
+        font-size: 22vw;
+        margin: 0 0 5vh 0;
+    }
+
+    #landing-text {
+        width: 89%;
+    }
+
+    #landing h2 {
+        margin-bottom: 0;
+    }
+
+    #landing p {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:323px) {
+    #landing p {
+        font-size: 8vw;
+    }
+}

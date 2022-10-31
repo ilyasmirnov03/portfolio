@@ -7,11 +7,18 @@
 
         init: function () {
             console.log("Hello World!");
-            // Dom manipulations
-            PTF.zIndex();
-            PTF.dNone();
-            // Ev listeners
-            PTF.handlers();
+            // If not on mobile
+            if (window.innerWidth > 579) {
+                // Dom manipulations
+                PTF.dNone();
+                PTF.zIndex();
+                // Observer API
+                PTF.normalScrollEnabler();
+                // Ev listeners
+                PTF.handlers();
+            } else {
+                PTF.mobileHandlers();
+            }
         },
 
         // Applies z-index to every page in descendent order
@@ -111,6 +118,8 @@
 
         // Scroll effect
         enableScroll: true,
+        enableScrollUp: true,
+        enableScrollDown: true,
         scroll: function (e) {
             // Easier to read
             let as = PTF.allSections;
@@ -120,12 +129,12 @@
             if (!PTF.enableScroll) return;
 
             // DOWN SCROLL
-            if (e.deltaY === 100 && cs !== as.length - 1) {
+            if (e.deltaY === 100 && cs !== as.length - 1 && PTF.enableScrollDown) {
                 PTF.scrollDown(as, cs);
             }
 
             // UP SCROLL
-            if (e.deltaY === -100 && cs !== 0) {
+            if (e.deltaY === -100 && cs !== 0 && PTF.enableScrollUp) {
                 PTF.scrollUp(as, cs);
             }
         },
@@ -134,6 +143,8 @@
             e.preventDefault();
             if (e.target.tagName === "A") {
                 let t = parseInt(e.target.closest("a").dataset.section);
+                PTF.enableScrollDown = true;
+                PTF.enableScrollUp = true;
 
                 if (t > PTF.currentSection) {
                     PTF.scrollDown(PTF.allSections, PTF.currentSection, t, PTF.currentSection);
@@ -144,15 +155,63 @@
             };
         },
 
+        normalScrollEnabler: function () {
+            let options = {
+                root: document.querySelector("#projects"),
+                rootMargin: '0px',
+                threshold: 1
+            }
+            let obs = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting === true) {
+                    PTF.enableScrollDown = false;
+                } else {
+                    PTF.enableScrollDown = true;
+                }
+            }, options);
+
+            obs.observe(document.querySelector("#projects>h1"));
+        },
+
+        customScrollEnabler: function () {
+            // If on top of the page -> can scroll up
+            if (window.innerHeight + window.scrollY === window.innerHeight) {
+                PTF.enableScrollUp = true;
+            } else {
+                PTF.enableScrollUp = false;
+            }
+
+            // If on bottom of the page -> can scroll down
+            if ((window.innerHeight + window.scrollY) >= document.querySelector("#projects").offsetHeight) {
+                PTF.enableScrollDown = true;
+            }
+        },
+
+        menuHandler: function (e) {
+            let h = document.querySelector("#header");
+            let b = document.querySelector("#blackened");
+            if (h.style.transform === "") {
+                h.style.transform = "translateX(0%)";
+                b.style.opacity = "1";
+            } else {
+                h.style.transform = "";
+                b.style.opacity = "0";
+            }
+        },
+
         //Event listeners
         handlers: function (e) {
             /* uncomment when done */
             // document.addEventListener("mousemove", PTF.mouseMoveEffect);
 
+            document.addEventListener("scroll", PTF.customScrollEnabler)
+
             document.addEventListener("wheel", PTF.scroll);
 
             document.querySelector("#navigation").addEventListener("click", PTF.scrollTo);
-            document.querySelector("#landing-btns").addEventListener("click", PTF.scrollTo);
+        },
+
+        mobileHandlers: function () {
+            document.querySelector("#menu-bar").addEventListener("click", PTF.menuHandler);
         }
     }
     window.addEventListener("DOMContentLoaded", PTF.init);
