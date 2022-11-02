@@ -42,7 +42,7 @@ html {
     --light-theme: rgb(250, 250, 250);
     --dark-theme: #0e0e0e;
     --complimentary: #5dc774;
-    --animation-time: 1s;
+    --animation-time: 899ms;
 }
 
 /*=============================================
@@ -62,11 +62,11 @@ html {
 
 @keyframes go-forward {
     from {
-        transform: scale(100%);
+        transform: scale(1);
     }
 
     to {
-        transform: scale(200%);
+        transform: scale(2);
         filter: blur(30px);
         opacity: 0;
     }
@@ -74,11 +74,11 @@ html {
 
 @keyframes go-backward {
     from {
-        transform: scale(100%);
+        transform: scale(1);
     }
 
     to {
-        transform: scale(75%);
+        transform: scale(.75);
         filter: blur(30px);
         opacity: 0;
     }
@@ -206,6 +206,7 @@ body::-webkit-scrollbar {
     background-color: rgba(20, 20, 20, 0.322);
     opacity: 0;
     transition: .33s ease-in-out;
+    pointer-events: none;
 }
 
 #header {
@@ -230,6 +231,11 @@ body::-webkit-scrollbar {
 #socials,
 #navigation {
     padding: 0;
+}
+
+#socials svg {
+    width:24px;
+    height:24px;
 }
 
 #socials>li {

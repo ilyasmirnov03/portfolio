@@ -3,7 +3,7 @@
 
         allSections: document.querySelectorAll(".page"),
         currentSection: 0,
-        animationTime: parseInt(getComputedStyle(document.documentElement).getPropertyValue("--animation-time").charAt(1)) * 1000,
+        animationTime: parseInt(getComputedStyle(document.documentElement).getPropertyValue("--animation-time").split("s")[0]),
 
         init: function () {
             console.log("Hello World!");
@@ -129,12 +129,12 @@
             if (!PTF.enableScroll) return;
 
             // DOWN SCROLL
-            if (e.deltaY === 100 && cs !== as.length - 1 && PTF.enableScrollDown) {
+            if (e.deltaY > 0 && cs !== as.length - 1 && PTF.enableScrollDown) {
                 PTF.scrollDown(as, cs);
             }
 
             // UP SCROLL
-            if (e.deltaY === -100 && cs !== 0 && PTF.enableScrollUp) {
+            if (e.deltaY < 0 && cs !== 0 && PTF.enableScrollUp) {
                 PTF.scrollUp(as, cs);
             }
         },
