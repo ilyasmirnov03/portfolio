@@ -174,14 +174,14 @@
 
         customScrollEnabler: function () {
             // If on top of the page -> can scroll up
-            if (window.innerHeight + window.scrollY === window.innerHeight) {
+            if (window.scrollY === 0) {
                 PTF.enableScrollUp = true;
             } else {
                 PTF.enableScrollUp = false;
             }
 
             // If on bottom of the page -> can scroll down
-            if ((window.innerHeight + window.scrollY) >= document.querySelector("#projects").offsetHeight) {
+            if (Math.ceil(window.innerHeight + window.scrollY) >= document.querySelector("#projects").offsetHeight) {
                 PTF.enableScrollDown = true;
             }
         },
