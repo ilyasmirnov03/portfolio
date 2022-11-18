@@ -231,6 +231,7 @@ body::-webkit-scrollbar {
 #socials,
 #navigation {
     padding: 0;
+    max-width: 3rem;
 }
 
 #socials svg {
@@ -256,6 +257,28 @@ body::-webkit-scrollbar {
 #navigation>li::before {
     content: "0" counter(item);
     font-size: 1rem;
+}
+
+#navigation>li:nth-child(1):after {
+    content:"accueil";
+}
+#navigation>li:nth-child(2):after {
+    content:"projets";
+}
+#navigation>li:nth-child(3):after {
+    content:"à propos";
+}
+#navigation>li:nth-child(4):after {
+    content:"curriculum vitae";
+}
+#navigation>li:nth-child(5):after {
+    content:"contact";
+}
+
+#navigation>li::after {
+    display:block;
+    font-size: 66%;
+    transform:translateY(-25%);
 }
 
 #navigation>li>a {
