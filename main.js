@@ -12,8 +12,6 @@
                 // Dom manipulations
                 PTF.dNone();
                 PTF.zIndex();
-                // Observer API
-                PTF.normalScrollEnabler();
                 // Ev listeners
                 PTF.handlers();
             } else {
@@ -129,12 +127,12 @@
             if (!PTF.enableScroll) return;
 
             // DOWN SCROLL
-            if (e.deltaY > 0 && cs !== as.length - 1 && PTF.enableScrollDown) {
+            if (e.deltaY > 0 && cs !== as.length - 1) {
                 PTF.scrollDown(as, cs);
             }
 
             // UP SCROLL
-            if (e.deltaY < 0 && cs !== 0 && PTF.enableScrollUp) {
+            if (e.deltaY < 0 && cs !== 0) {
                 PTF.scrollUp(as, cs);
             }
         },
@@ -155,51 +153,24 @@
             };
         },
 
-        normalScrollEnabler: function () {
-            let options = {
-                root: document.querySelector("#projects"),
-                rootMargin: '0px',
-                threshold: 1
-            }
-            let obs = new IntersectionObserver((entries) => {
-                if (entries[0].isIntersecting === true) {
-                    PTF.enableScrollDown = false;
-                } else {
-                    PTF.enableScrollDown = true;
-                }
-            }, options);
-
-            obs.observe(document.querySelector("#projects>h1"));
+        closeHeader: function() {
+            document.querySelector("#header").style.transform = "";
+            document.querySelector("#blackened").style.opacity = "0";
         },
-
-        customScrollEnabler: function () {
-            // If on top of the page -> can scroll up
-            if (window.scrollY === 0) {
-                PTF.enableScrollUp = true;
-            } else {
-                PTF.enableScrollUp = false;
-            }
-
-            // If on bottom of the page -> can scroll down
-            if (Math.ceil(window.innerHeight + window.scrollY) >= document.querySelector("#projects").offsetHeight) {
-                PTF.enableScrollDown = true;
-            }
-        },
-
+        
         menuHandler: function (e) {
             let h = document.querySelector("#header");
             let b = document.querySelector("#blackened");
             if (h.style.transform === "") {
                 h.style.transform = "translateX(0%)";
                 b.style.opacity = "1";
-            } else {
-                h.style.transform = "";
-                b.style.opacity = "0";
+            } else if (h.style.transform !== "") {
+                PTF.closeHeader();
             }
         },
 
-        //Event listeners
-        handlers: function (e) {
+        // Event listeners
+        handlers: function () {
             /* uncomment when done */
             // document.addEventListener("mousemove", PTF.mouseMoveEffect);
 
@@ -211,7 +182,14 @@
         },
 
         mobileHandlers: function () {
-            document.querySelector("#menu-bar").addEventListener("click", PTF.menuHandler);
+            document.querySelector("body").addEventListener("click", function(e) {
+                if (e.target === document.querySelector("#menu-bar")) {
+                    PTF.menuHandler(e);
+                }
+                if (e.target.closest("a") === e.target) {
+                    PTF.closeHeader();
+                }
+            });
         }
     }
     window.addEventListener("DOMContentLoaded", PTF.init);

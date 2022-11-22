@@ -2,28 +2,28 @@
 Next are the contents of this file.
 You can find sections by CTRL+F the following keywords:
 
-Global Declarations
-Fonts
-Animations
-Main Styles
-Utility Classes
-Header
-Landing Section
-About Section
-Skills Section
-Media Queries
+__Fonts
+__Global Declarations
+__Animations
+__Main Styles
+__Utility Classes
+__Header
+__Landing Section
+__About Section
+__Skills Section
+__Media Queries
 
 */
 
 /*=============================================
-=            Fonts                            =
+=            __Fonts                          =
 =============================================*/
 
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400&family=Secular+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400&display=swap');
 
 /*=============================================
-=            Global Declarations            =
+=            __Global Declarations            =
 =============================================*/
 
 html {
@@ -39,14 +39,14 @@ html {
 }
 
 :root {
-    --light-theme: rgb(250, 250, 250);
+    --light-theme: #fafafa;
     --dark-theme: #0e0e0e;
     --complimentary: #5dc774;
-    --animation-time: 899ms;
+    --animation-time: 456ms;
 }
 
 /*=============================================
-=            Animations                       =
+=            __Animations                     =
 =============================================*/
 
 @keyframes falling-x {
@@ -115,7 +115,7 @@ html {
 }
 
 /*=============================================
-=            Main Styles                      =
+=            __Main Styles                    =
 =============================================*/
 
 body {
@@ -141,7 +141,7 @@ body::-webkit-scrollbar {
 }
 
 /*=============================================
-=            Utility Classes                  =
+=            __Utility Classes                =
 =============================================*/
 
 .flex {
@@ -185,8 +185,18 @@ body::-webkit-scrollbar {
     margin: 0 0 10vh 0;
 }
 
+.btn {
+    border:none;
+    font-weight:300;
+    font-size:1.25vw;
+    border-radius:.5rem; 
+    background-color: var(--dark-theme);
+    color: var(--light-theme);
+    padding: .25rem 2rem;
+}
+
 /*=============================================
-=            Header                           =
+=            __Header                         =
 =============================================*/
 
 #menu-bar {
@@ -306,7 +316,7 @@ body::-webkit-scrollbar {
 }
 
 /*=============================================
-=            Landing Section                  =
+=            __Landing Section                =
 =============================================*/
 
 #landing {
@@ -344,28 +354,65 @@ body::-webkit-scrollbar {
 
 
 /*=============================================
-=            Projects                         =
+=            __Projects                       =
 =============================================*/
 
-#projects {
-    height: fit-content;
+.projects-title {
+    font-size:3.5vw;
+    font-weight:300;
+    font-family: 'Oswald';
+    background-color: var(--dark-theme);
+    color: var(--light-theme);
+    width: fit-content;
+    padding: .25rem;
+    margin:0;
+    transform:translateX(-3vw) translateY(-4vh);
+}
+
+.projects-languages {
+    opacity:.5; 
+}
+
+.projects-text {
+    font-size:119%;
+    font-weight: 300;
+}
+
+.projects-text {
+    width:60%;
+}
+
+.projects-card img {
+    object-fit: cover;
+    width:100%;
+}
+
+.projects-img-wrapper {
+    margin-right:1rem;
+    overflow:hidden;
+    width:60vw;
+    height:50vh;
+}
+
+#projects button {
+    font-size:120%;
 }
 
 
 /*=============================================
-=            About Section                    =
+=            __About Section                  =
 =============================================*/
 
 
 
 /*=============================================
-=            Skills Section                   =
+=            __Skills Section                 =
 =============================================*/
 
 
 
 /*=============================================
-=            Media Queries                    =
+=            __Media Queries                  =
 =============================================*/
 
 @media screen and (max-width:830px) {
@@ -379,11 +426,13 @@ body::-webkit-scrollbar {
     }
 }
 
-
 /*----------  Mobile  ----------*/
 
 
 @media screen and (max-width:591px) {
+    .main-wrapper {
+        padding:0 .5rem;
+    }
 
     .active-section {
         opacity: 1;
@@ -414,6 +463,8 @@ body::-webkit-scrollbar {
         margin: 0 0 5vh 0;
     }
 
+    /* Landing section */
+
     #landing-text {
         width: 89%;
     }
@@ -424,6 +475,43 @@ body::-webkit-scrollbar {
 
     #landing p {
         width: 100%;
+    }
+
+    /* Projects section */
+
+    .projects-title, .projects-text, .projects-card .btn {
+        margin:0 auto;
+    }
+
+    .projects-title {
+        transform: translateX(0) translateY(-.5rem);
+        font-size:250%;
+    }
+
+    .projects-languages {
+        text-align: center;
+    }
+
+    .projects-card, .projects-card>div:nth-child(2) {
+        width:100vw;
+        display:flex;
+        flex-direction:column;
+        align-items: center;
+    }
+
+    .projects-text {
+        margin:1rem auto;
+        width:91%;
+    }
+
+    .projects-img-wrapper {
+        width:80vw;
+        height:25vh;
+        margin:0;
+    }
+
+    .projects-holder {
+        overflow: hidden;
     }
 }
 
