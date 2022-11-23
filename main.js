@@ -10,7 +10,7 @@
             // CSS variables init
             PTF.setProjectsAmount();
             // If not on mobile
-            if (window.innerWidth > 579) {    
+            if (window.innerWidth > 579) {
                 // Dom manipulations
                 PTF.dNone();
                 PTF.zIndex();
@@ -25,7 +25,7 @@
             document.documentElement.style.setProperty("--grid-projects", document.querySelectorAll(".projects-holder>div").length.toString());
 
             document.querySelectorAll(".projects-holder>div").forEach((project) => {
-                el = createElement("li");
+                el = document.createElement("li");
                 el.classList.add("projects-nav-dot");
                 document.querySelector(".projects-all-nav").insertAdjacentElement("beforeend", el);
             });
@@ -194,6 +194,7 @@
         },
 
         mobileHandlers: function () {
+            console.log("mobile mode");
             document.querySelector("body").addEventListener("click", function(e) {
                 if (e.target === document.querySelector("#menu-bar")) {
                     PTF.menuHandler(e);

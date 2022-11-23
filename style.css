@@ -408,8 +408,10 @@ body::-webkit-scrollbar {
 .projects-nav-dot {
     width:1rem;
     height:1rem;
+    margin:0 .25rem;
     border-radius: 50%;
     background-color: var(--dark-theme);
+    opacity:.75;
 }
 
 
@@ -444,6 +446,10 @@ body::-webkit-scrollbar {
 
 
 @media screen and (max-width:591px) {
+    #menu-bar {
+        display: block;
+    }
+
     .main-wrapper {
         padding:0 .5rem;
     }
@@ -451,10 +457,6 @@ body::-webkit-scrollbar {
     .active-section {
         opacity: 1;
         pointer-events: all;
-    }
-
-    #menu-bar {
-        display: block;
     }
 
     #header {
@@ -524,8 +526,8 @@ body::-webkit-scrollbar {
         margin:0;
     }
 
-    .projects-holder {
-        overflow: hidden;
+    .projects-all-nav {
+        margin-top:2rem;
     }
 }
 
