@@ -7,8 +7,10 @@
 
         init: function () {
             console.log("Hello World!");
+            // CSS variables init
+            PTF.setProjectsAmount();
             // If not on mobile
-            if (window.innerWidth > 579) {
+            if (window.innerWidth > 579) {    
                 // Dom manipulations
                 PTF.dNone();
                 PTF.zIndex();
@@ -17,6 +19,16 @@
             } else {
                 PTF.mobileHandlers();
             }
+        },
+
+        setProjectsAmount: function () {
+            document.documentElement.style.setProperty("--grid-projects", document.querySelectorAll(".projects-holder>div").length.toString());
+
+            document.querySelectorAll(".projects-holder>div").forEach((project) => {
+                el = createElement("li");
+                el.classList.add("projects-nav-dot");
+                document.querySelector(".projects-all-nav").insertAdjacentElement("beforeend", el);
+            });
         },
 
         // Applies z-index to every page in descendent order

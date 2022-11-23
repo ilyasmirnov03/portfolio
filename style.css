@@ -43,6 +43,7 @@ html {
     --dark-theme: #0e0e0e;
     --complimentary: #5dc774;
     --animation-time: 456ms;
+    --grid-projects:none;
 }
 
 /*=============================================
@@ -382,6 +383,12 @@ body::-webkit-scrollbar {
     width:60%;
 }
 
+.projects-holder {
+    display:grid;
+    grid-template-columns: repeat(var(--grid-projects), 100vw);
+    transition: 250ms;
+}
+
 .projects-card img {
     object-fit: cover;
     width:100%;
@@ -396,6 +403,13 @@ body::-webkit-scrollbar {
 
 #projects button {
     font-size:120%;
+}
+
+.projects-nav-dot {
+    width:1rem;
+    height:1rem;
+    border-radius: 50%;
+    background-color: var(--dark-theme);
 }
 
 
