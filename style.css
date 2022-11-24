@@ -9,8 +9,8 @@ __Main Styles
 __Utility Classes
 __Header
 __Landing Section
+__Projects Section
 __About Section
-__Skills Section
 __Media Queries
 
 */
@@ -183,7 +183,7 @@ body::-webkit-scrollbar {
     font-family: 'Oswald';
     text-transform: uppercase;
     opacity: 0.2;
-    margin: 0 0 10vh 0;
+    margin: 0 0 9vh 0;
 }
 
 .btn {
@@ -194,6 +194,17 @@ body::-webkit-scrollbar {
     background-color: var(--dark-theme);
     color: var(--light-theme);
     padding: .25rem 2rem;
+    transition:.11s;
+}
+
+.btn:hover {
+    background-color: var(--complimentary);
+    cursor:pointer;
+}
+
+.active-view {
+    background-color: var(--complimentary) !important;
+    opacity:1 !important; 
 }
 
 /*=============================================
@@ -355,7 +366,7 @@ body::-webkit-scrollbar {
 
 
 /*=============================================
-=            __Projects                       =
+=            __Projects Section               =
 =============================================*/
 
 .projects-title {
@@ -371,7 +382,8 @@ body::-webkit-scrollbar {
 }
 
 .projects-languages {
-    opacity:.5; 
+    opacity:.5;
+    width:fit-content;
 }
 
 .projects-text {
@@ -389,6 +401,10 @@ body::-webkit-scrollbar {
     transition: 250ms;
 }
 
+.projects-card>div:nth-child(2) {
+    width:40%;
+}
+
 .projects-card img {
     object-fit: cover;
     width:100%;
@@ -397,7 +413,7 @@ body::-webkit-scrollbar {
 .projects-img-wrapper {
     margin-right:1rem;
     overflow:hidden;
-    width:60vw;
+    width:40vw;
     height:50vh;
 }
 
@@ -408,21 +424,45 @@ body::-webkit-scrollbar {
 .projects-nav-dot {
     width:1rem;
     height:1rem;
-    margin:0 .25rem;
+    margin:1rem .25rem;
     border-radius: 50%;
     background-color: var(--dark-theme);
-    opacity:.75;
+    opacity:.25;
+    cursor: pointer;
+    color:var(--light-theme);
+    transition: .25s;
+    transition-delay:.25s;
+    text-align: center;
+}
+
+.projects-nav-dot:hover {
+    opacity:1;
+    padding:0 .5rem;
+    border-radius: 1rem;
+    width:10rem;
+    transition-delay: 0s;
+}
+
+#projects>.arrows>span {
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:14vw;
+    cursor:pointer;
+    user-select: none;
+}
+
+#cl {
+    left:-5%;
+}
+
+#cr {
+    right:5%;
 }
 
 
 /*=============================================
 =            __About Section                  =
-=============================================*/
-
-
-
-/*=============================================
-=            __Skills Section                 =
 =============================================*/
 
 
@@ -445,7 +485,7 @@ body::-webkit-scrollbar {
 /*----------  Mobile  ----------*/
 
 
-@media screen and (max-width:591px) {
+@media screen and (max-width:620px) {
     #menu-bar {
         display: block;
     }

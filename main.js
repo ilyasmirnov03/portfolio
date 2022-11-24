@@ -10,7 +10,7 @@
             // CSS variables init
             PTF.setProjectsAmount();
             // If not on mobile
-            if (window.innerWidth > 579) {
+            if (window.innerWidth > 620) {
                 // Dom manipulations
                 PTF.dNone();
                 PTF.zIndex();
@@ -25,9 +25,10 @@
             document.documentElement.style.setProperty("--grid-projects", document.querySelectorAll(".projects-holder>div").length.toString());
 
             document.querySelectorAll(".projects-holder>div").forEach((project) => {
-                el = document.createElement("li");
+                let el = document.createElement("li");
                 el.classList.add("projects-nav-dot");
-                document.querySelector(".projects-all-nav").insertAdjacentElement("beforeend", el);
+                el.textContent = project.children[1].children[0].textContent;
+                document.querySelector(".projects-all-nav>ul").insertAdjacentElement("beforeend", el);
             });
         },
 
@@ -165,11 +166,41 @@
             };
         },
 
-        closeHeader: function() {
+        // Horizontal scroll functions
+        currentView: 0,
+        leftScroll: function () {
+            document.querySelectorAll(".projects-nav-dot")[PTF.currentView].classList.remove("active-view");
+            PTF.currentView = (PTF.currentView === 0) ? document.querySelectorAll(".projects-holder>div").length - 1 : PTF.currentView - 1;
+            document.querySelector(".projects-holder").style.transform = `translateX(${PTF.currentView * -100}%)`;
+            document.querySelectorAll(".projects-nav-dot")[PTF.currentView].classList.add("active-view");
+        },
+        rightScroll: function () {
+            document.querySelectorAll(".projects-nav-dot")[PTF.currentView].classList.remove("active-view");
+            PTF.currentView = (PTF.currentView + 1 <= document.querySelectorAll(".projects-holder>div").length - 1) ? PTF.currentView + 1 : 0;
+            document.querySelector(".projects-holder").style.transform = `translateX(${PTF.currentView * -100}%)`;
+            document.querySelectorAll(".projects-nav-dot")[PTF.currentView].classList.add("active-view");
+        },
+
+        /* showText: function (e) {
+            if (e.target.tagName === "LI") {
+                e.target.textContent = e.target.dataset.text;
+                e.target.style.width = "fit-content";
+                e.target.style.borderRadius = "1rem";
+            }
+        },
+
+        stopShowingText: function (e) {
+            e.target.textContent = "";
+            e.target.style.width = "1rem";
+            e.target.style.borderRadius = "50%";
+        }, */
+
+        // Mobile Header (Menu) functions
+        closeHeader: function () {
             document.querySelector("#header").style.transform = "";
             document.querySelector("#blackened").style.opacity = "0";
         },
-        
+
         menuHandler: function (e) {
             let h = document.querySelector("#header");
             let b = document.querySelector("#blackened");
@@ -191,11 +222,17 @@
             document.addEventListener("wheel", PTF.scroll);
 
             document.querySelector("#navigation").addEventListener("click", PTF.scrollTo);
+
+            document.querySelector("#cr").addEventListener("click", PTF.rightScroll);
+            document.querySelector("#cl").addEventListener("click", PTF.leftScroll);
+
+            // document.querySelector(".projects-all-nav>ul").addEventListener("mouseover", PTF.showText);
+            // document.querySelectorAll(".projects-all-nav>ul>li").forEach((li) => { li.addEventListener("mouseleave", PTF.stopShowingText) });
         },
 
+        // Mobile event listeners
         mobileHandlers: function () {
-            console.log("mobile mode");
-            document.querySelector("body").addEventListener("click", function(e) {
+            document.querySelector("body").addEventListener("click", function (e) {
                 if (e.target === document.querySelector("#menu-bar")) {
                     PTF.menuHandler(e);
                 }
