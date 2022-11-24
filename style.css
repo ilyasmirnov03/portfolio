@@ -29,6 +29,7 @@ __Media Queries
 html {
     font-size: 20px;
     scroll-behavior: smooth;
+    overflow-x:hidden;
 }
 
 * {
@@ -214,8 +215,8 @@ body::-webkit-scrollbar {
 #menu-bar {
     display: none;
     position: fixed;
-    right:52.5%;
-    top:1%;
+    top: 2.5%;
+    right: 5%;
     z-index: 202;
 }
 
@@ -234,7 +235,7 @@ body::-webkit-scrollbar {
 #header {
     height: 100%;
     position: fixed;
-    right: 50%;
+    right: 0;
     padding: 0.2rem 1.7rem;
     z-index: 200;
     box-shadow: -1px 5px 5px rgba(63, 63, 63, 0.25);
