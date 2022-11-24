@@ -214,8 +214,8 @@ body::-webkit-scrollbar {
 #menu-bar {
     display: none;
     position: fixed;
-    top: 2.5%;
-    right: 5%;
+    right:52.5%;
+    top:1%;
     z-index: 202;
 }
 
@@ -234,7 +234,7 @@ body::-webkit-scrollbar {
 #header {
     height: 100%;
     position: fixed;
-    right: 0;
+    right: 50%;
     padding: 0.2rem 1.7rem;
     z-index: 200;
     box-shadow: -1px 5px 5px rgba(63, 63, 63, 0.25);
