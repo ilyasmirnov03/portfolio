@@ -10,6 +10,7 @@
             // CSS variables init
             PTF.setProjectsAmount();
             // If not on mobile
+            alert(window.innerWidth)
             if (window.innerWidth > 620) {
                 // Dom manipulations
                 PTF.dNone();
