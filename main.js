@@ -9,9 +9,8 @@
             console.log("Hello World!");
             // CSS variables init
             PTF.setProjectsAmount();
-            PTF.showWindowWidth();
             // If not on mobile
-            if (window.innerWidth > 620) {
+            if (window.outerWidth > 620) {
                 // Dom manipulations
                 PTF.dNone();
                 PTF.zIndex();
@@ -197,12 +196,6 @@
             } else if (h.style.transform !== "") {
                 PTF.closeHeader();
             }
-        },
-
-        /* TESTING */
-        showWindowWidth: function() {
-            alert(`innerWidth:${window.innerWidth},
-            outerWidth:${window.outerWidth}`)
         },
 
         // Event listeners
