@@ -181,20 +181,6 @@
             document.querySelectorAll(".projects-nav-dot")[PTF.currentView].classList.add("active-view");
         },
 
-        /* showText: function (e) {
-            if (e.target.tagName === "LI") {
-                e.target.textContent = e.target.dataset.text;
-                e.target.style.width = "fit-content";
-                e.target.style.borderRadius = "1rem";
-            }
-        },
-
-        stopShowingText: function (e) {
-            e.target.textContent = "";
-            e.target.style.width = "1rem";
-            e.target.style.borderRadius = "50%";
-        }, */
-
         // Mobile Header (Menu) functions
         closeHeader: function () {
             document.querySelector("#header").style.transform = "";
@@ -226,8 +212,7 @@
             document.querySelector("#cr").addEventListener("click", PTF.rightScroll);
             document.querySelector("#cl").addEventListener("click", PTF.leftScroll);
 
-            // document.querySelector(".projects-all-nav>ul").addEventListener("mouseover", PTF.showText);
-            // document.querySelectorAll(".projects-all-nav>ul>li").forEach((li) => { li.addEventListener("mouseleave", PTF.stopShowingText) });
+            document.querySelectorAll(".projects-all-nav>ul>li").forEach((li) => { li.addEventListener("mouseleave", PTF.stopShowingText) });
         },
 
         // Mobile event listeners
