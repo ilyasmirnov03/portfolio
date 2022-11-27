@@ -4,21 +4,19 @@
         allSections: document.querySelectorAll(".page"),
         currentSection: 0,
         animationTime: parseInt(getComputedStyle(document.documentElement).getPropertyValue("--animation-time").split("s")[0]),
+        mobileWidth: 810, 
 
         init: function () {
             console.log("Hello World!");
             // CSS variables init
             PTF.setProjectsAmount();
-            // If not on mobile
-            if (window.outerWidth > 620) {
-                // Dom manipulations
+            // Dom manipulations
+            if (window.outerWidth > PTF.mobileWidth) {
                 PTF.dNone();
                 PTF.zIndex();
-                // Ev listeners
-                PTF.handlers();
-            } else {
-                PTF.mobileHandlers();
             }
+            // Ev listeners
+            PTF.handlers();
         },
 
         setProjectsAmount: function () {
@@ -200,6 +198,21 @@
 
         // Event listeners
         handlers: function () {
+            document.querySelector("#cr").addEventListener("click", PTF.rightScroll);
+            document.querySelector("#cl").addEventListener("click", PTF.leftScroll);
+            
+            //mobile
+            if (window.outerWidth <= PTF.mobileWidth) {
+                document.querySelector("body").addEventListener("click", function (e) {
+                    if (e.target === document.querySelector("#menu-bar")) {
+                        PTF.menuHandler(e);
+                    }
+                    if (e.target.closest("a") === e.target) {
+                        PTF.closeHeader();
+                    }
+                });
+                return;
+            }
             /* uncomment when done */
             // document.addEventListener("mousemove", PTF.mouseMoveEffect);
 
@@ -209,23 +222,7 @@
 
             document.querySelector("#navigation").addEventListener("click", PTF.scrollTo);
 
-            document.querySelector("#cr").addEventListener("click", PTF.rightScroll);
-            document.querySelector("#cl").addEventListener("click", PTF.leftScroll);
-
-            document.querySelectorAll(".projects-all-nav>ul>li").forEach((li) => { li.addEventListener("mouseleave", PTF.stopShowingText) });
         },
-
-        // Mobile event listeners
-        mobileHandlers: function () {
-            document.querySelector("body").addEventListener("click", function (e) {
-                if (e.target === document.querySelector("#menu-bar")) {
-                    PTF.menuHandler(e);
-                }
-                if (e.target.closest("a") === e.target) {
-                    PTF.closeHeader();
-                }
-            });
-        }
     }
     window.addEventListener("DOMContentLoaded", PTF.init);
 })();
