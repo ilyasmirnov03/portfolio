@@ -146,6 +146,8 @@
             if (e.deltaY < 0 && cs !== 0) {
                 PTF.scrollUp(as, cs);
             }
+
+            console.log(PTF.animationTime);
         },
 
         scrollTo: function (e) {
