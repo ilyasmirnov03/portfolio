@@ -3,7 +3,7 @@
 
         allSections: document.querySelectorAll(".page"),
         currentSection: 0,
-        animationTime: parseInt(getComputedStyle(document.documentElement).getPropertyValue("--animation-time").split("s")[0]),
+        animationTime: parseInt(getComputedStyle(document.documentElement).getPropertyValue("--animation-time").split("ms")[0]),
         mobileWidth: 810, 
 
         init: function () {
