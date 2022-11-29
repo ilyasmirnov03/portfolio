@@ -503,6 +503,16 @@ body::-webkit-scrollbar {
         margin: 0 auto;
     }
 
+    .projects-holder {
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+    }
+
+    .projects-card {
+        scroll-snap-align: start;
+    }
+
     .projects-title {
         transform: translateX(0) translateY(-.5rem);
         font-size: 250%;
@@ -535,18 +545,8 @@ body::-webkit-scrollbar {
         margin-top: 2rem;
     }
 
-    #projects>.arrows>span {
-        font-size: 500%;
-        top: 25%;
-        transform: none;
-    }
-
-    #cr {
-        right: 0;
-    }
-
-    #cl {
-        left: 0;
+    #projects>.arrows {
+        display:none;
     }
 }
 
@@ -569,16 +569,6 @@ body::-webkit-scrollbar {
 
     #landing p {
         width: 100%;
-    }
-
-    /*----------  Projects Section  ----------*/
-
-    #cr {
-        right: -6vw;
-    }
-
-    #cl {
-        left: -6vw;
     }
 }
 

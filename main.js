@@ -4,7 +4,7 @@
         allSections: document.querySelectorAll(".page"),
         currentSection: 0,
         animationTime: Number(getComputedStyle(document.documentElement).getPropertyValue("--animation-time").trim().split("ms")[0]),
-        mobileWidth: 810, 
+        mobileWidth: 810,
 
         init: function () {
             console.log("Hello World!");
@@ -22,11 +22,12 @@
         setProjectsAmount: function () {
             document.documentElement.style.setProperty("--grid-projects", document.querySelectorAll(".projects-holder>div").length.toString());
 
-            document.querySelectorAll(".projects-holder>div").forEach((project) => {
+            document.querySelectorAll(".projects-holder>div").forEach((project, index) => {
                 let el = document.createElement("li");
                 el.classList.add("projects-nav-dot");
                 el.textContent = project.children[1].children[0].textContent;
                 document.querySelector(".projects-all-nav>ul").insertAdjacentElement("beforeend", el);
+                (index === 0) ? el.classList.add("active-view") : false;
             });
         },
 
@@ -150,6 +151,7 @@
             console.log(PTF.animationTime);
         },
 
+        // Click in menu
         scrollTo: function (e) {
             e.preventDefault();
             if (e.target.tagName === "A") {
@@ -166,7 +168,7 @@
             };
         },
 
-        // Horizontal scroll functions
+        // Desktop horizontal scroll functions
         currentView: 0,
         leftScroll: function () {
             document.querySelectorAll(".projects-nav-dot")[PTF.currentView].classList.remove("active-view");
@@ -198,11 +200,17 @@
             }
         },
 
+        // Mobile horizontal scroll
+        horizontalScroll: function (e) {
+            let clientRect = e.target.children[0].getBoundingClientRect();
+            document.querySelector(".projects-nav-dot.active-view").classList.remove("active-view");
+            PTF.currentView = ((clientRect.left * -1 / clientRect.width) % 1 === 0) ? clientRect.left * -1 / clientRect.width : PTF.currentView;
+            document.querySelectorAll(".projects-nav-dot")[PTF.currentView].classList.add("active-view");
+        },
+
         // Event listeners
         handlers: function () {
-            document.querySelector("#cr").addEventListener("click", PTF.rightScroll);
-            document.querySelector("#cl").addEventListener("click", PTF.leftScroll);
-            
+
             //mobile
             if (window.outerWidth <= PTF.mobileWidth) {
                 document.querySelector("body").addEventListener("click", function (e) {
@@ -213,12 +221,14 @@
                         PTF.closeHeader();
                     }
                 });
+                document.querySelector(".projects-holder").addEventListener("scroll", PTF.horizontalScroll)
                 return;
             }
             /* uncomment when done */
             // document.addEventListener("mousemove", PTF.mouseMoveEffect);
 
-            document.addEventListener("scroll", PTF.customScrollEnabler)
+            document.querySelector("#cr").addEventListener("click", PTF.rightScroll);
+            document.querySelector("#cl").addEventListener("click", PTF.leftScroll);
 
             document.addEventListener("wheel", PTF.scroll);
 
