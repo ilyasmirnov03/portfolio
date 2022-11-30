@@ -183,7 +183,7 @@ body::-webkit-scrollbar {
     line-height: 1;
     font-family: 'Oswald';
     text-transform: uppercase;
-    opacity: 0.2;
+    color:rgb(202, 202, 202);
     margin: 0 0 9vh 0;
 }
 
@@ -203,7 +203,7 @@ body::-webkit-scrollbar {
     cursor: pointer;
 }
 
-.active-view {
+.active-project {
     background-color: var(--complimentary) !important;
     opacity: 1 !important;
 }
@@ -311,13 +311,15 @@ body::-webkit-scrollbar {
     width: 66%;
 }
 
-#landing h2 {
+#landing-keywords {
     font-size: 6rem;
     line-height: 6rem;
     font-family: 'Oswald';
     font-weight: 300;
     margin-bottom: 2rem;
     margin-top: 0;
+    display:block;
+    color: var(--dark-theme);
 }
 
 #landing p {
@@ -364,7 +366,7 @@ body::-webkit-scrollbar {
 }
 
 .projects-text {
-    width: 60%;
+    width: 79%;
 }
 
 .projects-holder {
@@ -387,6 +389,7 @@ body::-webkit-scrollbar {
     overflow: hidden;
     width: 40vw;
     height: 50vh;
+    background-color: #b9b9b9;
 }
 
 #projects button {
@@ -411,7 +414,7 @@ body::-webkit-scrollbar {
     text-align: center;
 }
 
-.projects-nav-dot:hover {
+.projects-nav-dot:hover, .active-project {
     opacity: 1;
     padding: 0 .5rem;
     border-radius: 1rem;

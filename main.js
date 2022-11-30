@@ -27,7 +27,7 @@
                 el.classList.add("projects-nav-dot");
                 el.textContent = project.children[1].children[0].textContent;
                 document.querySelector(".projects-all-nav>ul").insertAdjacentElement("beforeend", el);
-                (index === 0) ? el.classList.add("active-view") : false;
+                (index === 0) ? el.classList.add("active-project") : false;
             });
         },
 
@@ -171,16 +171,16 @@
         // Desktop horizontal scroll functions
         currentView: 0,
         leftScroll: function () {
-            document.querySelectorAll(".projects-nav-dot")[PTF.currentView].classList.remove("active-view");
+            document.querySelectorAll(".projects-nav-dot")[PTF.currentView].classList.remove("active-project");
             PTF.currentView = (PTF.currentView === 0) ? document.querySelectorAll(".projects-holder>div").length - 1 : PTF.currentView - 1;
             document.querySelector(".projects-holder").style.transform = `translateX(${PTF.currentView * -100}%)`;
-            document.querySelectorAll(".projects-nav-dot")[PTF.currentView].classList.add("active-view");
+            document.querySelectorAll(".projects-nav-dot")[PTF.currentView].classList.add("active-project");
         },
         rightScroll: function () {
-            document.querySelectorAll(".projects-nav-dot")[PTF.currentView].classList.remove("active-view");
+            document.querySelectorAll(".projects-nav-dot")[PTF.currentView].classList.remove("active-project");
             PTF.currentView = (PTF.currentView + 1 <= document.querySelectorAll(".projects-holder>div").length - 1) ? PTF.currentView + 1 : 0;
             document.querySelector(".projects-holder").style.transform = `translateX(${PTF.currentView * -100}%)`;
-            document.querySelectorAll(".projects-nav-dot")[PTF.currentView].classList.add("active-view");
+            document.querySelectorAll(".projects-nav-dot")[PTF.currentView].classList.add("active-project");
         },
 
         // Mobile Header (Menu) functions
@@ -203,9 +203,9 @@
         // Mobile horizontal scroll
         horizontalScroll: function (e) {
             let clientRect = e.target.children[0].getBoundingClientRect();
-            document.querySelector(".projects-nav-dot.active-view").classList.remove("active-view");
+            document.querySelector(".projects-nav-dot.active-project").classList.remove("active-project");
             PTF.currentView = ((clientRect.left * -1 / clientRect.width) % 1 === 0) ? clientRect.left * -1 / clientRect.width : PTF.currentView;
-            document.querySelectorAll(".projects-nav-dot")[PTF.currentView].classList.add("active-view");
+            document.querySelectorAll(".projects-nav-dot")[PTF.currentView].classList.add("active-project");
         },
 
         // Event listeners
