@@ -183,7 +183,7 @@ body::-webkit-scrollbar {
     line-height: 1;
     font-family: 'Oswald';
     text-transform: uppercase;
-    color:rgb(202, 202, 202);
+    color: rgb(202, 202, 202);
     margin: 0 0 9vh 0;
 }
 
@@ -312,13 +312,13 @@ body::-webkit-scrollbar {
 }
 
 #landing-keywords {
-    font-size: 6rem;
-    line-height: 6rem;
+    font-size: 7vw;
+    text-transform: none;
+    width: 70%;
     font-family: 'Oswald';
     font-weight: 300;
     margin-bottom: 2rem;
-    margin-top: 0;
-    display:block;
+    display: block;
     color: var(--dark-theme);
 }
 
@@ -327,13 +327,14 @@ body::-webkit-scrollbar {
     font-weight: 300;
     width: 66%;
     text-align: justify;
+    margin: 0;
 }
 
 #landing-icons {
-    margin-top: 7.4vh;
+    margin-top: 2vh;
     opacity: .25;
     width: 23%;
-    font-size: 27vw;
+    font-size: 22vw;
     justify-content: flex-end;
     align-items: flex-end;
 }
@@ -414,7 +415,8 @@ body::-webkit-scrollbar {
     text-align: center;
 }
 
-.projects-nav-dot:hover, .active-project {
+.projects-nav-dot:hover,
+.active-project {
     opacity: 1;
     padding: 0 .5rem;
     border-radius: 1rem;
@@ -480,7 +482,6 @@ body::-webkit-scrollbar {
         font-size: 5vw;
     }
 
-
     /*----------  Normal Scroll  ----------*/
 
     .main-wrapper {
@@ -496,6 +497,13 @@ body::-webkit-scrollbar {
     .page.custom-scroll.normal-scroll {
         display: block;
         position: relative;
+    }
+
+    /*----------  Landing  ----------*/
+
+    #landing-keywords {
+        font-size: inherit;
+        width:inherit;
     }
 
     /*----------  Projects Section ----------*/
@@ -549,7 +557,7 @@ body::-webkit-scrollbar {
     }
 
     #projects>.arrows {
-        display:none;
+        display: none;
     }
 }
 
