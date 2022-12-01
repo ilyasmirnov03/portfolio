@@ -3,11 +3,11 @@
 
         allSections: document.querySelectorAll(".page"),
         currentSection: 0,
-        animationTime: Number(getComputedStyle(document.documentElement).getPropertyValue("--animation-time").trim().split("ms")[0]),
         mobileWidth: 810,
 
         init: function () {
             console.log("Hello World!");
+            PTF.animationTime = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--animation-time").trim().split("ms")[0]);
             // CSS variables init
             PTF.setProjectsAmount();
             // Dom manipulations
