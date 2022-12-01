@@ -24,8 +24,10 @@
 
             document.querySelectorAll(".projects-holder>div").forEach((project, index) => {
                 let el = document.createElement("li");
+                let p = document.createElement("p");
+                el.insertAdjacentElement("beforeend", p);
                 el.classList.add("projects-nav-dot");
-                el.textContent = project.children[1].children[0].textContent;
+                p.textContent = project.children[1].children[0].textContent;
                 document.querySelector(".projects-all-nav>ul").insertAdjacentElement("beforeend", el);
                 (index === 0) ? el.classList.add("active-project") : false;
             });

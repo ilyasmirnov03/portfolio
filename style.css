@@ -397,14 +397,23 @@ body::-webkit-scrollbar {
     font-size: 120%;
 }
 
-.projects-all-nav>ul {
-    padding: 0;
+.projects-all-nav>ul>li:not(.active-project)>p:not(:hover) {
+    opacity:0;
+    transition-delay:.25s;
+}
+
+.projects-all-nav>ul>.active-project>p {
+    opacity:1;
+}
+
+.projects-all-nav>ul>li>p {
+    display:inline;
 }
 
 .projects-nav-dot {
     width: 1rem;
     height: 1rem;
-    margin: 1rem .25rem;
+    margin: 1rem .25rem;    
     border-radius: 50%;
     background-color: var(--dark-theme);
     opacity: .25;
