@@ -149,8 +149,6 @@
             if (e.deltaY < 0 && cs !== 0) {
                 PTF.scrollUp(as, cs);
             }
-
-            console.log(PTF.animationTime);
         },
 
         // Click in menu
@@ -209,6 +207,8 @@
             PTF.currentView = ((clientRect.left * -1 / clientRect.width) % 1 === 0) ? clientRect.left * -1 / clientRect.width : PTF.currentView;
             document.querySelectorAll(".projects-nav-dot")[PTF.currentView].classList.add("active-project");
         },
+
+        
 
         // Event listeners
         handlers: function () {

@@ -19,7 +19,7 @@ __Media Queries
 =            __Fonts                          =
 =============================================*/
 
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400&family=Secular+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500&family=Secular+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400&display=swap');
 
 /*=============================================
@@ -287,16 +287,20 @@ body::-webkit-scrollbar {
 #navigation>li>a {
     font-size: 66%;
     color: var(--dark-theme);
-    font-weight: 300;
 }
 
 #navigation>li:hover>a {
     color: var(--complimentary);
 }
 
+.active-section>a {
+    font-weight:500;
+    text-shadow: 0px 0px 0px rgba(0,0,0,1);
+}
+
 .active-section {
-    opacity: 0.5;
     pointer-events: none;
+    transform:scale(1.15);
 }
 
 /*=============================================
@@ -497,9 +501,14 @@ body::-webkit-scrollbar {
         padding: 0 .5rem;
     }
 
+    .active-section>a {
+        font-weight:300;
+        text-shadow: none;
+    }
+
     .active-section {
-        opacity: 1;
         pointer-events: all;
+        transform:none;
     }
 
     .page.custom-scroll,
