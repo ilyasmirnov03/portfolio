@@ -180,6 +180,7 @@ body::-webkit-scrollbar {
 
 .section-title {
     font-size: 14vw;
+    display:block;
     line-height: 1;
     font-family: 'Oswald';
     text-transform: uppercase;
@@ -459,7 +460,27 @@ body::-webkit-scrollbar {
 =            __About Section                  =
 =============================================*/
 
+#about-nav {
+    writing-mode: vertical-lr;
+}
 
+#about-nav>ul {
+    justify-content: space-evenly;
+}
+
+#about-nav>ul>li {
+    padding:.25rem 0;
+    font-weight:300;
+    cursor: pointer;
+}
+
+#about-nav>ul>li:hover {
+    color:var(--complimentary);
+}
+
+.about-content {
+    width:70%;
+}
 
 /*=============================================
 =            __Media Queries                  =
