@@ -272,6 +272,10 @@ body::-webkit-scrollbar {
     counter-set: item 0;
 }
 
+#navigation>li>a {
+    font-size: 66%;
+}
+
 #navigation>li {
     counter-increment: item 1;
     position: relative;
@@ -285,23 +289,22 @@ body::-webkit-scrollbar {
     transform: translateY(40%);
 }
 
-#navigation>li>a {
-    font-size: 66%;
-    color: var(--dark-theme);
+#navigation>li:not(.active-section)>a {
+    color:var(--dark-theme);
+}
+
+.active-section {
+    border-radius: .25rem;
+    background-color: var(--dark-theme);
+    pointer-events: none;
+}
+
+.active-section>a {
+    color:var(--light-theme);
 }
 
 #navigation>li:hover>a {
     color: var(--complimentary);
-}
-
-.active-section>a {
-    font-weight:500;
-    text-shadow: 0px 0px 0px rgba(0,0,0,1);
-}
-
-.active-section {
-    pointer-events: none;
-    transform:scale(1.15);
 }
 
 /*=============================================
