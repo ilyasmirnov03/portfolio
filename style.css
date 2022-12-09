@@ -469,7 +469,7 @@ body::-webkit-scrollbar {
 }
 
 #about-nav>ul>li {
-    padding:.25rem 0;
+    padding:.50rem 0;
     font-weight:300;
     cursor: pointer;
 }
@@ -479,7 +479,15 @@ body::-webkit-scrollbar {
 }
 
 .about-content {
-    width:70%;
+    width:50%;
+}
+
+.about-content:not(.active-about) {
+    display: none;
+}
+
+.active-about {
+    display:block;
 }
 
 /*=============================================

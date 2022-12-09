@@ -208,7 +208,11 @@
             document.querySelectorAll(".projects-nav-dot")[PTF.currentView].classList.add("active-project");
         },
 
-        
+        aboutNavigation: function(e) {
+            if (e.target.tagName = "LI") {
+                console.log(e.target.dataset.about);
+            }
+        },
 
         // Event listeners
         handlers: function () {
@@ -235,6 +239,8 @@
             document.addEventListener("wheel", PTF.scroll);
 
             document.querySelector("#navigation").addEventListener("click", PTF.scrollTo);
+
+            document.querySelector("#about-nav>ul").addEventListener("click", PTF.aboutNavigation);
 
         },
     }
