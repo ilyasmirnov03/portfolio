@@ -130,8 +130,6 @@
 
         // Scroll effect
         enableScroll: true,
-        enableScrollUp: true,
-        enableScrollDown: true,
         scroll: function (e) {
             // Easier to read
             let as = PTF.allSections;
@@ -154,17 +152,15 @@
         // Click in menu
         scrollTo: function (e) {
             e.preventDefault();
-            if (e.target.tagName === "A") {
-                let t = parseInt(e.target.closest("a").dataset.section);
-                PTF.enableScrollDown = true;
-                PTF.enableScrollUp = true;
+            if (e.target.tagName === "A" || e.target.tagName === "SPAN") {
+                let t = (e.target.nextElementSibling !== null) ? parseInt(e.target.nextElementSibling.dataset.section) : parseInt(e.target.dataset.section);
 
                 if (t > PTF.currentSection) {
                     PTF.scrollDown(PTF.allSections, PTF.currentSection, t, PTF.currentSection);
                 } else {
                     PTF.scrollUp(PTF.allSections, PTF.currentSection, PTF.currentSection - t);
                 }
-                PTF.currentSection = parseInt(e.target.closest("a").dataset.section);
+                PTF.currentSection = t;
             };
         },
 
@@ -208,7 +204,7 @@
             document.querySelectorAll(".projects-nav-dot")[PTF.currentView].classList.add("active-project");
         },
 
-        aboutNavigation: function(e) {
+        aboutNavigation: function (e) {
             if (e.target.tagName = "LI") {
                 console.log(e.target.dataset.about);
             }
