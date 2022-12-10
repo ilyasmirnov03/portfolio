@@ -209,6 +209,29 @@
     <!-- contact -->
     <section id="contact" class="page custom-scroll">
       <span class="section-title">contact</span>
+      <div id="contact-holder" class="main-wrapper">
+        <form action="" method="post">
+          <div class="contact-input contact-double-input">
+            <div>
+              <label for="name">Qui etes-vous ?</label>
+              <input type="text" name="name" placeholder="Nom/Entreprise" required>
+            </div>
+            <div>
+              <label for="email">Votre e-mail :</label>
+              <input type="email" name="email" placeholder="domain@host.com" required>
+            </div>
+          </div>
+          <div class="contact-input">
+            <label for="subject">Le sujet du mail :</label>
+            <input type="text" name="subject">
+          </div>
+          <div class="contact-input">
+            <label for="message">Votre message :</label>
+            <textarea name="message"></textarea>
+          </div>
+          <button class="btn">Envoyer</button>
+        </form>
+      </div>
     </section>
   </main>
 </body>

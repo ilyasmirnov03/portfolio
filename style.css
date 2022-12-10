@@ -11,6 +11,7 @@ __Header
 __Landing Section
 __Projects Section
 __About Section
+__Contact
 __Media Queries
 
 */
@@ -498,6 +499,47 @@ body::-webkit-scrollbar {
     display: block;
 }
 
+
+/*=============================================
+=            __Contact                        =
+=============================================*/
+
+#contact-holder {
+    width: 50%;
+}
+
+#contact-holder button {
+    font-size:120%;
+}
+
+#contact-holder input,
+#contact-holder textarea {
+    width:99%;
+    border: none;
+    padding: .50rem .25rem;
+    border-radius: .25rem;
+}
+
+#contact-holder input:focus,
+#contact-holder textarea:focus {
+    outline:var(--complimentary) solid 2px;
+}
+
+.contact-input label {
+    display: block;
+    font-family: 'Oswald';
+    font-weight:300;
+}
+
+.contact-input {
+    margin-bottom: 1rem;
+}
+
+.contact-double-input {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
+
 /*=============================================
 =            __Media Queries                  =
 =============================================*/
@@ -613,6 +655,12 @@ body::-webkit-scrollbar {
 
     #projects>.arrows {
         display: none;
+    }
+
+    /*----------  Contact  ----------*/
+    
+    #contact-holder {
+        width:100%;
     }
 }
 
