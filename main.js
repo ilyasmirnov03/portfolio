@@ -234,11 +234,19 @@
             }
         },
 
+        copyToClipboard: function(e) {
+            e.target.textContent = "Lien copié avec succès!";
+            e.target.style.backgroundColor = "var(--complimentary)";
+            navigator.clipboard.writeText(document.URL);
+        },
+
         // Event listeners
         handlers: function () {
 
-            // crossover ev listeners
+            // cross-platform ev listeners
             document.querySelector("#about-nav>ul").addEventListener("click", PTF.aboutNavigation);
+
+            document.querySelector('#resume-share').addEventListener("click", PTF.copyToClipboard);
 
             //mobile ev listeners
             if (window.outerWidth <= PTF.mobileWidth) {

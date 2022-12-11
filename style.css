@@ -151,6 +151,12 @@ body::-webkit-scrollbar {
 
 .flex {
     display: flex;
+    flex-wrap: wrap;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
 }
 
 .justify-center {
@@ -437,11 +443,11 @@ body::-webkit-scrollbar {
     transition: .25s;
     transition-delay: .25s;
     text-align: center;
-    overflow:hidden;
+    overflow: hidden;
 }
 
 .projects-nav-dot>p {
-    color:var(--light-theme);
+    color: var(--light-theme);
 }
 
 .projects-nav-dot:hover,
@@ -477,12 +483,12 @@ body::-webkit-scrollbar {
 
 #about-nav {
     writing-mode: vertical-lr;
-    height:fit-content;
+    height: fit-content;
 }
 
 #about-nav>ul {
-    border:1px solid var(--dark-theme);
-    padding:0;
+    border: 1px solid var(--dark-theme);
+    padding: 0;
 }
 
 #about-nav>ul>li {
@@ -497,7 +503,7 @@ body::-webkit-scrollbar {
 
 #about-nav>ul>.active-about-nav {
     background-color: var(--dark-theme);
-    color:var(--light-theme);
+    color: var(--light-theme);
 }
 
 .about-content {
@@ -522,13 +528,18 @@ body::-webkit-scrollbar {
 =============================================*/
 
 #resume-holder img {
-    height:50vh;
-    filter:grayscale(0.5);
-    transition:.25s;
+    height: 50vh;
+    filter: grayscale(0.5);
+    transition: .25s;
 }
 
 #resume-holder img:hover {
-    filter:none;
+    filter: none;
+}
+
+#resume-buttons>* {
+    margin-bottom: .55rem;
+    font-size: 110%;
 }
 
 /*=============================================
@@ -540,27 +551,27 @@ body::-webkit-scrollbar {
 }
 
 #contact-holder button {
-    font-size:120%;
+    font-size: 120%;
 }
 
 #contact-holder input,
 #contact-holder textarea {
-    width:99%;
+    width: 99%;
     border: none;
     padding: .50rem .25rem;
     border-radius: .25rem;
-    font-size:105%;
+    font-size: 105%;
 }
 
 #contact-holder input:focus,
 #contact-holder textarea:focus {
-    outline:var(--complimentary) solid 2px;
+    outline: var(--complimentary) solid 2px;
 }
 
 .contact-input label {
     display: block;
     font-family: 'Oswald';
-    font-weight:300;
+    font-weight: 300;
 }
 
 .contact-input {
@@ -568,7 +579,7 @@ body::-webkit-scrollbar {
 }
 
 .contact-double-input {
-    display:grid;
+    display: grid;
     grid-template-columns: 1fr 1fr;
 }
 
@@ -689,10 +700,16 @@ body::-webkit-scrollbar {
         display: none;
     }
 
+    /*----------  Resume  ----------*/
+
+    #resume-holder {
+        justify-content: center;
+    }
+
     /*----------  Contact  ----------*/
-    
+
     #contact-holder {
-        width:100%;
+        width: 100%;
     }
 }
 
