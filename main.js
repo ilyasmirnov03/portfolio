@@ -2,11 +2,13 @@
     const PTF = {
 
         allSections: document.querySelectorAll(".page"),
-        currentSection: 0,
+        sectionURL: document.URL.split("#")[1],
         mobileWidth: 810,
 
         init: function () {
             console.log("Hello World!");
+            // setting sensible global variables
+            PTF.currentSection = (PTF.sectionURL) ? Array.from(PTF.allSections).indexOf(document.querySelector(`#${PTF.sectionURL}`)) : 0;
             PTF.animationTime = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--animation-time").trim().split("ms")[0]);
             // CSS variables init
             PTF.setProjectsAmount();
@@ -41,11 +43,17 @@
             });
         },
 
-        // Applies display:none to all pages but the first
+        /**
+         * Applies display:none to all pages but the visible one and sets current section in header
+         */
         dNone: function () {
-            for (let i = 1; i < PTF.allSections.length; i++) {
-                PTF.allSections[i].style.display = "none";
-            }
+            PTF.allSections.forEach((el) => {
+                if (el === PTF.allSections[PTF.currentSection]) {
+                    document.querySelectorAll("#navigation>li")[PTF.currentSection].classList.add("active-section");
+                    return;
+                }
+                el.style.display = "none";
+            });
         },
 
         // On mouse move apply effect
@@ -64,7 +72,12 @@
             setTimeout(() => { PTF.enableMouseMove = true }, 333);
         },
 
-        // t -> target, initially is one step
+        /**
+         * 
+         * - @param {NodeList} as - all section elements
+         * - @param {int} cs - number that represents current section
+         * - @param {int} t - multiplier that determines how many sections should be scrolled, default = 1
+         */
         scrollUp: function (as, cs, t = 1) {
             PTF.enableScroll = false;
 
@@ -93,12 +106,18 @@
 
                 PTF.currentSection = cs;
                 PTF.enableScroll = true;
+
+                history.pushState(PTF.currentSection, "", `#${PTF.allSections[PTF.currentSection].id}`);
             }, PTF.animationTime);
         },
 
-        /* as -> all sections, cs -> current section, 
-        t -> target, if need to go through multiple sections,
-        n -> nullifier, to avoid getting out of number of sections */
+        /**
+         * 
+         * - @param {NodeList} as - all section elements
+         * - @param {int} cs - number that represents current section
+         * - @param {int} t - how much should a section be moved, default = 1
+         * - @param {int} n - negator, default = 0 for normal scroll, is equal to current section when need to scroll more than 1 section
+         */
         scrollDown: function (as, cs, t = 1, n = 0) {
             PTF.enableScroll = false;
 
@@ -125,6 +144,8 @@
 
                 PTF.currentSection = cs;
                 PTF.enableScroll = true
+
+                history.pushState(PTF.currentSection, "", `#${PTF.allSections[PTF.currentSection].id}`);
             }, PTF.animationTime);
         },
 
@@ -205,15 +226,21 @@
         },
 
         aboutNavigation: function (e) {
-            if (e.target.tagName = "LI") {
-                console.log(e.target.dataset.about);
+            if (e.target.tagName === "LI") {
+                document.querySelector('.active-about-nav').classList.remove('active-about-nav');
+                e.target.classList.add("active-about-nav");
+                document.querySelector('.active-about').classList.remove('active-about');
+                document.querySelectorAll('.about-content')[parseInt(e.target.dataset.about)].classList.add('active-about');
             }
         },
 
         // Event listeners
         handlers: function () {
 
-            //mobile
+            // crossover ev listeners
+            document.querySelector("#about-nav>ul").addEventListener("click", PTF.aboutNavigation);
+
+            //mobile ev listeners
             if (window.outerWidth <= PTF.mobileWidth) {
                 document.querySelector("body").addEventListener("click", function (e) {
                     if (e.target === document.querySelector("#menu-bar")) {
@@ -235,9 +262,6 @@
             document.addEventListener("wheel", PTF.scroll);
 
             document.querySelector("#navigation").addEventListener("click", PTF.scrollTo);
-
-            document.querySelector("#about-nav>ul").addEventListener("click", PTF.aboutNavigation);
-
         },
     }
     window.addEventListener("DOMContentLoaded", PTF.init);

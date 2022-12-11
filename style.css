@@ -11,6 +11,7 @@ __Header
 __Landing Section
 __Projects Section
 __About Section
+__Resume
 __Contact
 __Media Queries
 
@@ -38,6 +39,7 @@ html {
     font-family: 'Lexend', sans-serif;
     text-decoration: none;
     list-style-type: none;
+    color: var(--dark-theme);
 }
 
 :root {
@@ -432,10 +434,14 @@ body::-webkit-scrollbar {
     background-color: var(--dark-theme);
     opacity: .25;
     cursor: pointer;
-    color: var(--light-theme);
     transition: .25s;
     transition-delay: .25s;
     text-align: center;
+    overflow:hidden;
+}
+
+.projects-nav-dot>p {
+    color:var(--light-theme);
 }
 
 .projects-nav-dot:hover,
@@ -471,14 +477,16 @@ body::-webkit-scrollbar {
 
 #about-nav {
     writing-mode: vertical-lr;
+    height:fit-content;
 }
 
 #about-nav>ul {
-    justify-content: space-evenly;
+    border:1px solid var(--dark-theme);
+    padding:0;
 }
 
 #about-nav>ul>li {
-    padding: .50rem 0;
+    padding: .50rem .25rem;
     font-weight: 300;
     cursor: pointer;
 }
@@ -487,8 +495,17 @@ body::-webkit-scrollbar {
     color: var(--complimentary);
 }
 
+#about-nav>ul>.active-about-nav {
+    background-color: var(--dark-theme);
+    color:var(--light-theme);
+}
+
 .about-content {
     width: 50%;
+}
+
+.about-content h2 {
+    margin-top: 0;
 }
 
 .about-content:not(.active-about) {
@@ -499,6 +516,20 @@ body::-webkit-scrollbar {
     display: block;
 }
 
+
+/*=============================================
+=            __Resume                         =
+=============================================*/
+
+#resume-holder img {
+    height:50vh;
+    filter:grayscale(0.5);
+    transition:.25s;
+}
+
+#resume-holder img:hover {
+    filter:none;
+}
 
 /*=============================================
 =            __Contact                        =
@@ -518,6 +549,7 @@ body::-webkit-scrollbar {
     border: none;
     padding: .50rem .25rem;
     border-radius: .25rem;
+    font-size:105%;
 }
 
 #contact-holder input:focus,

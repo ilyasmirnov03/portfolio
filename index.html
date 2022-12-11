@@ -68,7 +68,7 @@
         </li>
       </ul>
       <ol id="navigation">
-        <li class="active-section">
+        <li>
           <span></span>
           <a data-section="0" href="#landing">accueil</a>
         </li>
@@ -169,7 +169,7 @@
       <div class="about-holder flex">
         <nav id="about-nav">
           <ul class="flex">
-            <li data-about="0">DEV</li>
+            <li data-about="0" class="active-about-nav">DEV</li>
             <li data-about="1">DES</li>
             <li data-about="2">MUS</li>
           </ul>
@@ -184,7 +184,7 @@
         </div>
         <!-- competences -->
         <div class="about-content">
-          <h2>Compétences graphisme</h2>
+          <h2>Compétences graphiques</h2>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium expedita vero unde, quam similique
             magnam.
@@ -192,7 +192,7 @@
         </div>
         <!-- musique -->
         <div class="about-content">
-          <h2>Musique</h2>
+          <h2>Passion musicale</h2>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium expedita vero unde, quam similique
             magnam.
@@ -204,30 +204,30 @@
     <!-- resume -->
     <section id="resume" class="page custom-scroll">
       <span class="section-title">mon cv</span>
+      <div id="resume-holder" class="main-wrapper">
+        <img src="./assets/images/cv-ilya-smirnov.webp" alt="CV Ilya Smirnov">
+      </div>
     </section>
 
     <!-- contact -->
     <section id="contact" class="page custom-scroll">
       <span class="section-title">contact</span>
       <div id="contact-holder" class="main-wrapper">
+        <p>Contactez-moi en envoyant un e-mail</p>
         <form action="" method="post">
           <div class="contact-input contact-double-input">
             <div>
-              <label for="name">Qui etes-vous ?</label>
               <input type="text" name="name" placeholder="Nom/Entreprise" required>
             </div>
             <div>
-              <label for="email">Votre e-mail :</label>
               <input type="email" name="email" placeholder="domain@host.com" required>
             </div>
           </div>
           <div class="contact-input">
-            <label for="subject">Le sujet du mail :</label>
-            <input type="text" name="subject">
+            <input type="text" name="subject" placeholder="Sujet" required>
           </div>
           <div class="contact-input">
-            <label for="message">Votre message :</label>
-            <textarea name="message"></textarea>
+            <textarea name="message" placeholder="Message" required></textarea>
           </div>
           <button class="btn">Envoyer</button>
         </form>
