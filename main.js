@@ -21,6 +21,11 @@
             PTF.handlers();
         },
 
+        darkThemeSwitch: function () {
+            document.querySelector(':root').style.setProperty('--dark-theme', '#fafafa');
+            document.querySelector(':root').style.setProperty('--light-theme', '#0e0e0e');
+        },
+
         setProjectsAmount: function () {
             document.documentElement.style.setProperty("--grid-projects", document.querySelectorAll(".projects-holder>div").length.toString());
 
@@ -247,6 +252,8 @@
             document.querySelector("#about-nav>ul").addEventListener("click", PTF.aboutNavigation);
 
             document.querySelector('#resume-share').addEventListener("click", PTF.copyToClipboard);
+
+            document.querySelector('#socials svg:first-child').addEventListener("click", PTF.darkThemeSwitch);
 
             //mobile ev listeners
             if (window.outerWidth <= PTF.mobileWidth) {
