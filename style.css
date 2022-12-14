@@ -264,7 +264,6 @@ body::-webkit-scrollbar {
 #socials,
 #navigation {
     padding: 0;
-    max-width: 3rem;
 }
 
 #socials svg {
@@ -309,6 +308,10 @@ body::-webkit-scrollbar {
 
 .active-section {
     pointer-events: none;
+}
+
+.active-section span::before {
+    margin-bottom:.35rem;
 }
 
 .active-section a {
@@ -532,6 +535,12 @@ body::-webkit-scrollbar {
     display: block;
 }
 
+#about-buttons>* {
+    margin-bottom: .55rem;
+    font-size: 110%;
+    width:25%;
+    text-align: center;
+}
 
 /*=============================================
 =            __Resume                         =
@@ -547,10 +556,6 @@ body::-webkit-scrollbar {
     filter: none;
 }
 
-#resume-buttons>* {
-    margin-bottom: .55rem;
-    font-size: 110%;
-}
 
 /*=============================================
 =            __Contact                        =
