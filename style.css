@@ -11,7 +11,6 @@ __Header
 __Landing Section
 __Projects Section
 __About Section
-__Resume
 __Contact
 __Media Queries
 
@@ -535,34 +534,17 @@ body::-webkit-scrollbar {
     display: block;
 }
 
-#about-buttons>* {
-    margin-bottom: .55rem;
-    font-size: 110%;
-    width:25%;
-    text-align: center;
-}
-
-/*=============================================
-=            __Resume                         =
-=============================================*/
-
-#resume-holder img {
-    height: 50vh;
-    filter: grayscale(0.5);
-    transition: .25s;
-}
-
-#resume-holder img:hover {
-    filter: none;
-}
-
-
 /*=============================================
 =            __Contact                        =
 =============================================*/
 
+#contact>div {
+    justify-content: space-evenly;
+}
+
 #contact-holder {
     width: 50%;
+    margin-bottom: 2rem;;
 }
 
 #contact-holder button {
@@ -575,12 +557,18 @@ body::-webkit-scrollbar {
     border: none;
     padding: .50rem .25rem;
     border-radius: .25rem;
-    font-size: 105%;
+    font-size: 90%;
 }
 
 #contact-holder input:focus,
 #contact-holder textarea:focus {
     outline: var(--complimentary) solid 2px;
+}
+
+#contact-buttons>* {
+    margin-bottom: .55rem;
+    font-size: 110%;
+    text-align: center;
 }
 
 .contact-input label {
