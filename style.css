@@ -173,7 +173,7 @@ body::-webkit-scrollbar {
 }
 
 .page {
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     background-color: var(--light-theme);
 }
@@ -268,7 +268,7 @@ body::-webkit-scrollbar {
 #socials svg {
     width: 24px;
     height: 24px;
-    fill:var(--dark-theme);
+    fill: var(--dark-theme);
 }
 
 #socials>li {
@@ -310,7 +310,7 @@ body::-webkit-scrollbar {
 }
 
 .active-section span::before {
-    margin-bottom:.35rem;
+    margin-bottom: .35rem;
 }
 
 .active-section a {
@@ -500,7 +500,7 @@ body::-webkit-scrollbar {
     cursor: pointer;
 }
 
-#about-nav>ul>li:hover {
+#about-nav>ul>li:not(.active-about-nav):hover {
     color: var(--complimentary);
 }
 
@@ -539,12 +539,13 @@ body::-webkit-scrollbar {
 =============================================*/
 
 #contact>div {
-    justify-content: space-evenly;
+    width:80%;
+    justify-content: space-around;
 }
 
 #contact-holder {
     width: 50%;
-    margin-bottom: 2rem;;
+    margin-bottom: 2rem;
 }
 
 #contact-holder button {
@@ -563,6 +564,10 @@ body::-webkit-scrollbar {
 #contact-holder input:focus,
 #contact-holder textarea:focus {
     outline: var(--complimentary) solid 2px;
+}
+
+#contact-resume {
+    padding:0 1rem;
 }
 
 #contact-buttons>* {
@@ -605,6 +610,14 @@ body::-webkit-scrollbar {
 
 @media screen and (max-width:810px) {
 
+
+    /*----------  Main  ----------*/
+
+    .page {
+        min-height: 100vh;
+        padding-bottom: 1rem;
+    }
+
     /*----------  Header  ----------*/
 
     #menu-bar {
@@ -643,6 +656,10 @@ body::-webkit-scrollbar {
     }
 
     /*----------  Landing  ----------*/
+
+    #landing {
+        padding: 0 1rem 1rem 1rem;
+    }
 
     #landing-keywords {
         font-size: inherit;
@@ -703,15 +720,15 @@ body::-webkit-scrollbar {
         display: none;
     }
 
-    /*----------  Resume  ----------*/
-
-    #resume-holder {
-        justify-content: center;
-    }
-
     /*----------  Contact  ----------*/
 
+    #contact>div {
+        width:100%;
+    }
+
     #contact-holder {
+        padding: 0 2rem;
+        font-size: 90%;
         width: 100%;
     }
 }
