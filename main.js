@@ -230,6 +230,7 @@
             document.querySelectorAll(".projects-nav-dot")[PTF.currentView].classList.add("active-project");
         },
 
+        // navigation between sections in about page
         aboutNavigation: function (e) {
             if (e.target.tagName === "LI") {
                 document.querySelector('.active-about-nav').classList.remove('active-about-nav');
@@ -239,10 +240,25 @@
             }
         },
 
-        copyToClipboard: function(e) {
+        // copies pdf link to resume in the clipboard
+        copyToClipboard: function (e) {
             e.target.textContent = "Lien copié avec succès!";
             e.target.style.backgroundColor = "var(--complimentary)";
-            navigator.clipboard.writeText(document.URL);
+            navigator.clipboard.writeText(document.URL.split("#")[0] + "assets/download/cv-ilya-smirnov.pdf");
+        },
+
+        // open the detailed project description
+        detailedProjectOpen: function (e) {
+            document.querySelector(`.projects-detailed[data-project="${e.target.closest(".projects-card").dataset.project}"]`).style.display = "block";
+            document.querySelector('.projects-detailed-holder').classList.add("opened");
+            document.querySelector("#blackened").style.opacity = "1";
+        },
+        
+        // close the detailed project description
+        detailedProjectClose: function () {
+            document.querySelector('.projects-detailed-holder').classList.remove("opened");
+            document.querySelector("#blackened").style.opacity = "0";
+            document.querySelector('.projects-detailed[style]').removeAttribute("style");
         },
 
         // Event listeners
@@ -254,6 +270,12 @@
             document.querySelector('#resume-share').addEventListener("click", PTF.copyToClipboard);
 
             document.querySelector('#socials svg:first-child').addEventListener("click", PTF.darkThemeSwitch);
+
+            document.querySelectorAll('.projects-btn').forEach(btn => {
+                btn.addEventListener("click", PTF.detailedProjectOpen);
+            });
+
+            document.querySelector('.projects-detailed-holder>span').addEventListener("click", PTF.detailedProjectClose);
 
             //mobile ev listeners
             if (window.outerWidth <= PTF.mobileWidth) {
@@ -274,7 +296,7 @@
             document.querySelector("#cr").addEventListener("click", PTF.rightScroll);
             document.querySelector("#cl").addEventListener("click", PTF.leftScroll);
 
-            document.addEventListener("wheel", PTF.scroll);
+            document.querySelector("main").addEventListener("wheel", PTF.scroll);
 
             document.querySelector("#navigation").addEventListener("click", PTF.scrollTo);
         },
