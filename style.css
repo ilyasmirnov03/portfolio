@@ -41,6 +41,11 @@ html {
     --grid-projects: none;
 }
 
+br {
+    margin: .5rem 0;
+    display: block;
+}
+
 /*=============================================
 =            __Animations                     =
 =============================================*/
@@ -403,17 +408,12 @@ body::-webkit-scrollbar {
     width: 40%;
 }
 
-.projects-card img {
-    object-fit: cover;
-    width: 100%;
-}
-
 .projects-img-wrapper {
     margin-right: 1rem;
     overflow: hidden;
     width: 40vw;
     height: 50vh;
-    background-color: #b9b9b9;
+    box-shadow: 0px 0px 5px rgb(0, 0, 0, 0.2);
 }
 
 .projects-all-nav>ul>li:not(.active-project)>p:not(:hover) {
@@ -490,17 +490,36 @@ body::-webkit-scrollbar {
 }
 
 .projects-detailed {
-    display:none;
+    display: none;
+    padding: 0 7vw;
+}
+
+.projects-detailed>span {
+    display: block;
+    font-family: 'Oswald';
+    font-size: 200%;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.projects-detailed img {
+    width: 100%;
+    cursor: zoom-in;
+}
+
+.projects-detailed p {
+    font-size: 120%;
+    font-weight: 300;
 }
 
 .projects-detailed-holder>span {
-    float:right;
-    font-size:2rem;
-    cursor:pointer;
+    float: right;
+    font-size: 2rem;
+    cursor: pointer;
 }
 
 .projects-detailed-holder>span:hover {
-    font-weight:bolder
+    font-weight: bolder
 }
 
 /*=============================================

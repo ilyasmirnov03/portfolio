@@ -3,6 +3,7 @@
 
         allSections: document.querySelectorAll(".page"),
         sectionURL: document.URL.split("#")[1],
+        colors: ['#0e0e0e', '#fafafa'],
         mobileWidth: 810,
 
         init: function () {
@@ -21,11 +22,14 @@
             PTF.handlers();
         },
 
-        darkThemeSwitch: function () {
-            document.querySelector(':root').style.setProperty('--dark-theme', '#fafafa');
-            document.querySelector(':root').style.setProperty('--light-theme', '#0e0e0e');
+        // dark/light theme switcher
+        themeSwitcher: function () {
+            PTF.colors = PTF.colors.reverse();
+            document.querySelector(':root').style.setProperty('--dark-theme', PTF.colors[0]);
+            document.querySelector(':root').style.setProperty('--light-theme', PTF.colors[1]);
         },
 
+        // projects navigation setup
         setProjectsAmount: function () {
             document.documentElement.style.setProperty("--grid-projects", document.querySelectorAll(".projects-holder>div").length.toString());
 
@@ -40,7 +44,7 @@
             });
         },
 
-        // Applies z-index to every page in descendent order
+        // applies z-index to every page in descendent order
         zIndex: function () {
             [...PTF.allSections].reverse().map((section, index) => {
                 section.style.zIndex = index + 1;
@@ -253,7 +257,7 @@
             document.querySelector('.projects-detailed-holder').classList.add("opened");
             document.querySelector("#blackened").style.opacity = "1";
         },
-        
+
         // close the detailed project description
         detailedProjectClose: function () {
             document.querySelector('.projects-detailed-holder').classList.remove("opened");
@@ -269,7 +273,7 @@
 
             document.querySelector('#resume-share').addEventListener("click", PTF.copyToClipboard);
 
-            document.querySelector('#socials svg:first-child').addEventListener("click", PTF.darkThemeSwitch);
+            document.querySelector('#socials svg:first-child').addEventListener("click", PTF.themeSwitcher);
 
             document.querySelectorAll('.projects-btn').forEach(btn => {
                 btn.addEventListener("click", PTF.detailedProjectOpen);
