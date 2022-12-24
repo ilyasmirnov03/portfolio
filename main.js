@@ -5,9 +5,11 @@
         sectionURL: document.URL.split("#")[1],
         colors: ['#0e0e0e', '#fafafa'],
         mobileWidth: 810,
+        mobileMode: window.outerWidth < 810,
 
         init: function () {
             console.log("Hello World!");
+            console.log(`Mobile mode: ${PTF.mobileMode}`);
             // setting sensible global variables
             PTF.currentSection = (PTF.sectionURL) ? Array.from(PTF.allSections).indexOf(document.querySelector(`#${PTF.sectionURL}`)) : 0;
             PTF.animationTime = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--animation-time").trim().split("ms")[0]);
@@ -27,21 +29,6 @@
             PTF.colors = PTF.colors.reverse();
             document.querySelector(':root').style.setProperty('--dark-theme', PTF.colors[0]);
             document.querySelector(':root').style.setProperty('--light-theme', PTF.colors[1]);
-        },
-
-        // projects navigation setup
-        setProjectsAmount: function () {
-            document.documentElement.style.setProperty("--grid-projects", document.querySelectorAll(".projects-holder>div").length.toString());
-
-            document.querySelectorAll(".projects-holder>div").forEach((project, index) => {
-                let el = document.createElement("li");
-                let p = document.createElement("p");
-                el.insertAdjacentElement("beforeend", p);
-                el.classList.add("projects-nav-dot");
-                p.textContent = project.children[1].children[0].textContent;
-                document.querySelector(".projects-all-nav>ul").insertAdjacentElement("beforeend", el);
-                (index === 0) ? el.classList.add("active-project") : false;
-            });
         },
 
         // applies z-index to every page in descendent order
@@ -179,7 +166,7 @@
             }
         },
 
-        // Click in menu
+        // Click in header
         scrollTo: function (e) {
             e.preventDefault();
             if (e.target.tagName === "A" || e.target.tagName === "SPAN") {
@@ -194,19 +181,52 @@
             };
         },
 
-        // Desktop horizontal scroll functions
-        currentView: 0,
+        // Desktop projects horizontal scroll functions
+        currentProject: 0,
         leftScroll: function () {
-            document.querySelectorAll(".projects-nav-dot")[PTF.currentView].classList.remove("active-project");
-            PTF.currentView = (PTF.currentView === 0) ? document.querySelectorAll(".projects-holder>div").length - 1 : PTF.currentView - 1;
-            document.querySelector(".projects-holder").style.transform = `translateX(${PTF.currentView * -100}%)`;
-            document.querySelectorAll(".projects-nav-dot")[PTF.currentView].classList.add("active-project");
+            let selector = document.querySelectorAll(".projects-nav-dot");
+            selector[PTF.currentProject].classList.remove("active-project");
+            PTF.currentProject = (PTF.currentProject === 0) ? document.querySelectorAll(".projects-holder>div").length - 1 : PTF.currentProject - 1;
+            document.querySelector(".projects-holder").style.transform = `translateX(${PTF.currentProject * -100}%)`;
+            selector[PTF.currentProject].classList.add("active-project");
         },
         rightScroll: function () {
-            document.querySelectorAll(".projects-nav-dot")[PTF.currentView].classList.remove("active-project");
-            PTF.currentView = (PTF.currentView + 1 <= document.querySelectorAll(".projects-holder>div").length - 1) ? PTF.currentView + 1 : 0;
-            document.querySelector(".projects-holder").style.transform = `translateX(${PTF.currentView * -100}%)`;
-            document.querySelectorAll(".projects-nav-dot")[PTF.currentView].classList.add("active-project");
+            let selector = document.querySelectorAll(".projects-nav-dot");
+            selector[PTF.currentProject].classList.remove("active-project");
+            PTF.currentProject = (PTF.currentProject + 1 <= document.querySelectorAll(".projects-holder>div").length - 1) ? PTF.currentProject + 1 : 0;
+            document.querySelector(".projects-holder").style.transform = `translateX(${PTF.currentProject * -100}%)`;
+            selector[PTF.currentProject].classList.add("active-project");
+        },
+
+        // projects navigation setup
+        setProjectsAmount: function () {
+            document.documentElement.style.setProperty("--grid-projects", document.querySelectorAll(".projects-holder>div").length.toString());
+            document.querySelectorAll(".projects-holder>div").forEach((project, index) => {
+                let el = document.createElement("li");
+                let p = document.createElement("p");
+                el.insertAdjacentElement("beforeend", p);
+                el.classList.add("projects-nav-dot");
+                p.textContent = project.children[1].children[0].textContent;
+                document.querySelector(".projects-all-nav>ul").insertAdjacentElement("beforeend", el);
+                (index === 0) ? el.classList.add("active-project") : false;
+            });
+        },
+
+        // projects navigation click
+        projectsDotNavigation: function (e) {
+            if (e.target.tagName === "LI") {
+                let i = Array.from(document.querySelectorAll('.projects-nav-dot')).indexOf(e.target);
+
+                if (PTF.mobileMode) {
+                    document.querySelector('.projects-holder').scrollLeft = `${window.innerWidth * i}`;
+                    return;
+                }
+
+                document.querySelector(".projects-holder").style.transform = `translateX(${i * -100}%)`;
+                document.querySelector('.projects-nav-dot.active-project').classList.remove('active-project');
+                PTF.currentProject = i;
+                document.querySelectorAll('.projects-nav-dot')[i].classList.add('active-project');
+            }
         },
 
         // Mobile Header (Menu) functions
@@ -230,8 +250,8 @@
         horizontalScroll: function (e) {
             let clientRect = e.target.children[0].getBoundingClientRect();
             document.querySelector(".projects-nav-dot.active-project").classList.remove("active-project");
-            PTF.currentView = ((clientRect.left * -1 / clientRect.width) % 1 === 0) ? clientRect.left * -1 / clientRect.width : PTF.currentView;
-            document.querySelectorAll(".projects-nav-dot")[PTF.currentView].classList.add("active-project");
+            PTF.currentProject = ((clientRect.left * -1 / clientRect.width) % 1 === 0) ? clientRect.left * -1 / clientRect.width : PTF.currentProject;
+            document.querySelectorAll(".projects-nav-dot")[PTF.currentProject].classList.add("active-project");
         },
 
         // navigation between sections in about page
@@ -278,6 +298,8 @@
             document.querySelectorAll('.projects-btn').forEach(btn => {
                 btn.addEventListener("click", PTF.detailedProjectOpen);
             });
+
+            document.querySelector('.projects-all-nav>ul').addEventListener("click", PTF.projectsDotNavigation);
 
             document.querySelector('.projects-detailed-holder>span').addEventListener("click", PTF.detailedProjectClose);
 
