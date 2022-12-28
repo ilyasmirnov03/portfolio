@@ -285,6 +285,17 @@
             document.querySelector('.projects-detailed[style]').removeAttribute("style");
         },
 
+        // open zoom on image in detailed project
+        imageZoomOpen: function (e) {
+            document.querySelector('.projects-detailed-img').style.display = "grid";
+            document.querySelector('.projects-detailed-img>img').src = e.target.src;
+        },
+
+        // close zoom on image in detailed project
+        imageZoomClose: function () {
+            document.querySelector('.projects-detailed-img').style.display = "none";
+        },
+
         // Event listeners
         handlers: function () {
 
@@ -294,6 +305,10 @@
             document.querySelector('#resume-share').addEventListener("click", PTF.copyToClipboard);
 
             document.querySelector('#socials svg:first-child').addEventListener("click", PTF.themeSwitcher);
+
+            document.querySelectorAll('.projects-detailed-holder img').forEach(img => img.addEventListener("click", PTF.imageZoomOpen));
+
+            document.querySelector('.projects-detailed-img>span').addEventListener("click", PTF.imageZoomClose);
 
             document.querySelectorAll('.projects-btn').forEach(btn => {
                 btn.addEventListener("click", PTF.detailedProjectOpen);

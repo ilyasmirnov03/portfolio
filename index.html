@@ -64,9 +64,9 @@
         <img src="./assets/images/musicaltrainer3.webp" alt="Musical trainer avec la cle de fa">
       </div>
       <p>
-        "Musical Trainer" est une application qui aide à s'entraîner au solfège de manière ludique.
+        Musical Trainer est une application qui aide à s'entraîner au solfège de manière ludique.
         <br>
-        Musical trainer est mon premier projet personnel de développement web. Il est codé en HTML, CSS et JS purs.
+        C'est mon premier projet personnel de développement web. Il est codé en HTML, CSS et JS purs.
         <br>
         Lorsque l'utilisateur clique sur le bouton du début du jeu, une note apparaît sur la portée. L'utilisateur doit
         ensuite identifier la note par rapport à son emplacement sur la portée. Si la note saisie ne correspond pas à la
@@ -75,6 +75,40 @@
         une autre note.
       </p>
     </div>
+    <div data-project="3" class="projects-detailed">
+      <span>Leaf Score</span>
+      <div>
+        <img src="./assets/images/laplateforme1.webp" alt="Projet Leaf Score, le panier">
+        <img src="./assets/images/laplateforme2.webp" alt="Projet Leaf Score, la page d'ajout de produit">
+      </div>
+      <p>
+        Leaf Score est un prototype de points de l'éco-responsabilité attribués à un panier de produits de client.
+        <br>
+        C'est un projet de groupe, dans lequel j'ai réalisé de maniere technique ce que nous avons réfléchi
+        collectivement.
+        <br>
+        Le projet consiste en proposition de prototype d'outil qui doit montrer l'éco-responsabilité du panier de
+        client, proposer un système de points de fidélité en lien avec les points d'éco-responsabilité du panier et
+        proposer d'arrondir la somme du panier au-dessus pour pouvoir donner la différence à une association.
+      </p>
+    </div>
+    <div data-project="4" class="projects-detailed">
+      <span>Green Solutions</span>
+      <div>
+        <img src="./assets/images/greensolutions1.webp" alt="Page d'accueil de green solutions">
+        <img src="./assets/images/greensolutions2.webp" alt="Musical trainer avec la cle de fa">
+      </div>
+      <p>
+        Green Solutions est une entreprise fictive qui propose des sites faits sous la contrainte du Green IT.
+        <br>
+        Le projet scolaire consistait en replication de design fourni en HTML et CSS avec creation de page simple en JS
+        et une page dynamique en PHP.
+      </p>
+    </div>
+  </div>
+  <div class="projects-detailed-img">
+    <span class="material-symbols-outlined">close</span>
+    <img src="./assets/images/alltheitems.webp" alt="Zoom sur l'image du projet">
   </div>
   <!-- header -->
   <header id="header">
@@ -193,6 +227,35 @@
             <button class="btn projects-btn">Savoir plus</button>
           </div>
         </div>
+        <!-- 3 -->
+        <div data-project="3" class="main-wrapper projects-card justify-center">
+          <div class="projects-img-wrapper">
+            <img src="./assets/images/laplateforme1.webp" alt="Projet leaf score">
+          </div>
+          <div>
+            <h3 class="projects-title">Leaf Score</h3>
+            <div class="projects-languages">PHP CSS JS</div>
+            <p class="projects-text">
+              Projet scolaire, prototype de points d'éco-responsabilité attribués à un panier de produits de client pour
+              le site la plate-forme.
+            </p>
+            <button class="btn projects-btn">Savoir plus</button>
+          </div>
+        </div>
+        <!-- 4 -->
+        <div data-project="4" class="main-wrapper projects-card justify-center">
+          <div class="projects-img-wrapper">
+            <img src="./assets/images/greensolutions1.webp" alt="Projet green solutions">
+          </div>
+          <div>
+            <h3 class="projects-title">Green Solutions</h3>
+            <div class="projects-languages">HTML CSS JS</div>
+            <p class="projects-text">
+              Projet scolaire, replication d'une page statique en HTML, CSS et JS.
+            </p>
+            <button class="btn projects-btn">Savoir plus</button>
+          </div>
+        </div>
         <!-- end projects -->
       </div>
       <nav class="projects-all-nav">
@@ -214,7 +277,8 @@
       <div class="about-holder">
         <nav id="about-nav">
           <ul class="flex">
-            <li data-about="0" class="active-about-nav">DEV<span class="about-extension">ELOPPEMENT</span><i class="fa-solid fa-code"></i></li>
+            <li data-about="0" class="active-about-nav">DEV<span class="about-extension">ELOPPEMENT</span><i
+                class="fa-solid fa-code"></i></li>
             <li data-about="1">DES<span class="about-extension">IGN</span><i class="fa-solid fa-pen"></i></li>
             <li data-about="2">MUS<span class="about-extension">IQUE</span><i class="fa-solid fa-music"></i></li>
           </ul>
@@ -349,17 +413,17 @@
           <form action="" method="post">
             <div class="contact-input contact-double-input">
               <div>
-                <input type="text" name="name" placeholder="Nom/Entreprise" required>
+                <input type="text" name="name" placeholder="Nom/Entreprise*" required>
               </div>
               <div>
-                <input type="email" name="email" placeholder="domain@host.com" required>
+                <input type="email" name="email" placeholder="domain@host.com*" required>
               </div>
             </div>
             <div class="contact-input">
-              <input type="text" name="subject" placeholder="Sujet" required>
+              <input type="text" name="subject" placeholder="Sujet">
             </div>
             <div class="contact-input">
-              <textarea name="message" placeholder="Message" required></textarea>
+              <textarea name="message" placeholder="Message*" required></textarea>
             </div>
             <button class="btn">Envoyer</button>
           </form>

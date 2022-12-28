@@ -191,7 +191,7 @@ body::-webkit-scrollbar {
 }
 
 .section-title {
-    font-size: 14vw;
+    font-size: clamp(4.5rem, 12vw + 1rem, 20rem);
     display: block;
     line-height: 1;
     font-family: 'Oswald';
@@ -416,6 +416,11 @@ body::-webkit-scrollbar {
     box-shadow: 0px 0px 5px rgb(0, 0, 0, 0.2);
 }
 
+.projects-img-wrapper>img {
+    height: 101%;
+    filter:grayscale(0.75);
+}
+
 .projects-nav-dot {
     width: 1.25rem;
     height: 1.25rem;
@@ -511,14 +516,32 @@ body::-webkit-scrollbar {
     font-weight: 300;
 }
 
-.projects-detailed-holder>span {
-    float: right;
-    font-size: 2rem;
+.projects-detailed-holder>span,
+.projects-detailed-img>span {
+    position: absolute;
+    top: 2.5%;
+    right: 5%;
+    font-size: 3rem;
     cursor: pointer;
 }
 
-.projects-detailed-holder>span:hover {
-    font-weight: bolder
+.projects-detailed-img {
+    width: 100vw;
+    height: 100vh;
+    background: rgb(0, 0, 0, 0.75);
+    position: fixed;
+    z-index: 500;
+    display: none;
+    place-items: center;
+}
+
+.projects-detailed-img>img {
+    width: 95%;
+}
+
+.projects-detailed-img>span {
+    color: white;
+    text-shadow:0px 0px 5px black;
 }
 
 /*=============================================
@@ -644,7 +667,7 @@ body::-webkit-scrollbar {
 #contact-holder input,
 #contact-holder textarea {
     width: 99%;
-    border: none;
+    border: 1px solid var(--dark-theme);
     padding: .50rem .25rem;
     border-radius: .25rem;
     font-size: 90%;
@@ -848,7 +871,6 @@ body::-webkit-scrollbar {
 @media screen and (max-width:620px) {
 
     .section-title {
-        font-size: 22vw;
         margin: 0 0 5vh 0;
     }
 
