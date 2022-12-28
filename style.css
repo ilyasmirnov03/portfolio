@@ -191,7 +191,7 @@ body::-webkit-scrollbar {
 }
 
 .section-title {
-    font-size: clamp(4.5rem, 12vw + 1rem, 20rem);
+    font-size: clamp(3.6rem, 12vw + 1rem, 20rem);
     display: block;
     line-height: 1;
     font-family: 'Oswald';
