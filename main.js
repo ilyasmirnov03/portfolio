@@ -296,6 +296,22 @@
             document.querySelector('.projects-detailed-img').style.display = "none";
         },
 
+        handleContactForm: function (e) {
+            e.preventDefault();
+            let formData = new FormData(document.querySelector('form'));
+            let url = "https://ilyasmirnov.alwaysdata.net/mail-send";
+            let options = {
+                method: "post",
+                body: formData,
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            };
+            fetch(url, options)
+                .then(res => { res.json() })
+                .then(server => console.log(server));
+        },
+
         // Event listeners
         handlers: function () {
 
@@ -317,6 +333,8 @@
             document.querySelector('.projects-all-nav>ul').addEventListener("click", PTF.projectsDotNavigation);
 
             document.querySelector('.projects-detailed-holder>span').addEventListener("click", PTF.detailedProjectClose);
+
+            document.querySelector('form').addEventListener("submit", PTF.handleContactForm);
 
             //mobile ev listeners
             if (window.outerWidth <= PTF.mobileWidth) {
