@@ -299,7 +299,7 @@
         handleContactForm: function (e) {
             e.preventDefault();
             let formData = new FormData(document.querySelector('form'));
-            let url = "https://ilyasmirnov.alwaysdata.net/mail-send";
+            let url = "https://ilyasmirnov.alwaysdata.net/mail-send/index.php";
             let options = {
                 method: "post",
                 body: formData,
