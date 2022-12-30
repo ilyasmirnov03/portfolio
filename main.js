@@ -303,9 +303,6 @@
             let options = {
                 method: "post",
                 body: formData,
-                headers: {
-                    'Content-Type': 'application/json'
-                },
                 mode: 'no-cors'
             };
             fetch(url, options)
