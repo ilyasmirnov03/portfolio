@@ -1,0 +1,78 @@
+/*=============================================
+=            __Animations                     =
+=============================================*/
+
+@keyframes falling-x {
+    0% {
+        transform: translateY(0%) rotate(90deg);
+    }
+
+    100% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}
+
+@keyframes go-forward {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(2);
+        filter: blur(30px);
+        opacity: 0;
+    }
+}
+
+@keyframes go-backward {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(.75);
+        filter: blur(30px);
+        opacity: 0;
+    }
+}
+
+@keyframes blinking {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes icons-loop {
+    from {
+        transform: translateX(0%);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.go-forward {
+    animation: go-forward forwards var(--animation-time);
+}
+
+.go-backward {
+    animation: go-backward forwards var(--animation-time);
+}
+
+.return-init-backward {
+    animation: go-forward reverse forwards var(--animation-time);
+}
+
+.return-init-forward {
+    animation: go-backward reverse forwards var(--animation-time);
+}
+
+.blinking {
+    animation: blinking infinite alternate ease-in-out .7s;
+}

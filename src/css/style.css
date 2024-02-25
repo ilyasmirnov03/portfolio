@@ -47,85 +47,6 @@ br {
 }
 
 /*=============================================
-=            __Animations                     =
-=============================================*/
-
-@keyframes falling-x {
-    0% {
-        transform: translateY(0%) rotate(90deg);
-    }
-
-    100% {
-        transform: translateY(100%);
-        opacity: 0;
-    }
-}
-
-@keyframes go-forward {
-    from {
-        transform: scale(1);
-    }
-
-    to {
-        transform: scale(2);
-        filter: blur(30px);
-        opacity: 0;
-    }
-}
-
-@keyframes go-backward {
-    from {
-        transform: scale(1);
-    }
-
-    to {
-        transform: scale(.75);
-        filter: blur(30px);
-        opacity: 0;
-    }
-}
-
-@keyframes blinking {
-    from {
-        opacity: 1;
-    }
-
-    to {
-        opacity: 0;
-    }
-}
-
-@keyframes icons-loop {
-    from {
-        transform: translateX(0%);
-    }
-
-    to {
-        transform: translateX(-100%);
-    }
-}
-
-.go-forward {
-    animation: go-forward forwards var(--animation-time);
-}
-
-.go-backward {
-    animation: go-backward forwards var(--animation-time);
-}
-
-.return-init-backward {
-    animation: go-forward reverse forwards var(--animation-time);
-}
-
-.return-init-forward {
-    animation: go-backward reverse forwards var(--animation-time);
-}
-
-.blinking {
-    animation: blinking infinite alternate ease-in-out .7s;
-}
-
-/*=============================================
 =            __Main Styles                    =
 =============================================*/
 
@@ -273,6 +194,7 @@ body::-webkit-scrollbar {
     width: 24px;
     height: 24px;
     fill: var(--dark-theme);
+    color: var(--dark-theme);
 }
 
 #socials>li {
@@ -460,21 +382,21 @@ body::-webkit-scrollbar {
     transition-delay: 0s;
 }
 
-#projects>.arrows>span {
+#projects>.arrows>svg {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 14vw;
+    font-size: 5vw;
     cursor: pointer;
     user-select: none;
 }
 
 #cl {
-    left: -5%;
+    left: 1rem;
 }
 
 #cr {
-    right: 123px;
+    right: 15rem;
 }
 
 .projects-detailed-holder {
@@ -500,7 +422,7 @@ body::-webkit-scrollbar {
 
 .projects-detailed-title {
     margin: 2rem 0;
-    display:flex;
+    display: flex;
     align-items: center;
     justify-content: center;
 }
@@ -508,7 +430,7 @@ body::-webkit-scrollbar {
 .projects-detailed-title span {
     font-family: 'Oswald';
     font-size: 200%;
-    margin:0 .5rem;
+    margin: 0 .5rem;
 }
 
 .projects-detailed-title a {

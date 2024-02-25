@@ -1,3 +1,6 @@
+import './src/js/icons.js';
+import './src/css/global.css';
+
 (function () {
     const PTF = {
 
@@ -65,7 +68,7 @@
             div.style.top = e.y + "px";
             document.querySelector("body").appendChild(div);
             div.addEventListener("animationend", () => { div.remove(); });
-            setTimeout(() => { PTF.enableMouseMove = true }, 333);
+            setTimeout(() => { PTF.enableMouseMove = true; }, 333);
         },
 
         /**
@@ -139,7 +142,7 @@
                 as[cs].classList.remove("go-backward");
 
                 PTF.currentSection = cs;
-                PTF.enableScroll = true
+                PTF.enableScroll = true;
 
                 history.pushState(PTF.currentSection, "", `#${PTF.allSections[PTF.currentSection].id}`);
             }, PTF.animationTime);
@@ -306,7 +309,7 @@
                 mode: 'no-cors'
             };
             fetch(url, options)
-                .then(res => { res.json() })
+                .then(res => { res.json(); })
                 .then(server => console.log(server));
         },
 
@@ -316,13 +319,13 @@
             // cross-platform ev listeners
             document.querySelector("#about-nav>ul").addEventListener("click", PTF.aboutNavigation);
 
-            document.querySelector('#resume-share').addEventListener("click", PTF.copyToClipboard);
+            document.getElementById('resume-share').addEventListener("click", PTF.copyToClipboard);
 
-            document.querySelector('#socials svg:first-child').addEventListener("click", PTF.themeSwitcher);
+            document.getElementById('theme-switcher').addEventListener("click", PTF.themeSwitcher);
 
             document.querySelectorAll('.projects-detailed-holder img').forEach(img => img.addEventListener("click", PTF.imageZoomOpen));
 
-            document.querySelector('.projects-detailed-img>span').addEventListener("click", PTF.imageZoomClose);
+            document.querySelector('.projects-detailed-img>.fa-xmark').addEventListener("click", PTF.imageZoomClose);
 
             document.querySelectorAll('.projects-btn').forEach(btn => {
                 btn.addEventListener("click", PTF.detailedProjectOpen);
@@ -330,7 +333,7 @@
 
             document.querySelector('.projects-all-nav>ul').addEventListener("click", PTF.projectsDotNavigation);
 
-            document.querySelector('.projects-detailed-holder>span').addEventListener("click", PTF.detailedProjectClose);
+            document.querySelector('.projects-detailed-holder>.fa-xmark').addEventListener("click", PTF.detailedProjectClose);
 
             document.querySelector('form').addEventListener("submit", PTF.handleContactForm);
 
@@ -344,7 +347,7 @@
                         PTF.closeHeader();
                     }
                 });
-                document.querySelector(".projects-holder").addEventListener("scroll", PTF.horizontalScroll)
+                document.querySelector(".projects-holder").addEventListener("scroll", PTF.horizontalScroll);
                 return;
             }
             /* uncomment when done */
@@ -357,6 +360,6 @@
 
             document.querySelector("#navigation").addEventListener("click", PTF.scrollTo);
         },
-    }
+    };
     window.addEventListener("DOMContentLoaded", PTF.init);
 })();
