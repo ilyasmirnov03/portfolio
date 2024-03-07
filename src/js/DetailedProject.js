@@ -13,10 +13,6 @@ export class DetailedProject extends HTMLElement {
         dom.i2svg();
     }
 
-    disconnectedCallback() {
-
-    }
-
     render() {
         const $project = document.createElement('article');
 
@@ -25,7 +21,7 @@ export class DetailedProject extends HTMLElement {
                 <i class="fa-solid fa-xmark"></i>          
             </button>
             <h3 class="projects-detailed-title">
-                ${this.project.title} 
+                ${this.project.title} - ${this.generateLink(this.project.link)}
                 <a target="_blank" href="${this.project.github}">
                     <i class="fa-brands fa-github"></i>
                 </a>
@@ -40,6 +36,13 @@ export class DetailedProject extends HTMLElement {
         this.querySelector('.close').addEventListener('click', () => {
             this.close();
         });
+    }
+
+    generateLink(link) {
+        if (typeof link === 'undefined') {
+            return '';
+        }
+        return `<a href="${link}" target="_blank">Lien</a>`;
     }
 
     generateImages(images) {
