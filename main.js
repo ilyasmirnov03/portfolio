@@ -1,6 +1,7 @@
 import './src/js/icons.js';
 import './src/css/global.css';
 import './src/js/PortfolioProjects.js';
+import './src/js/JobExperience.js';
 
 (function () {
     const PTF = {

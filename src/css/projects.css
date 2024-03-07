@@ -95,7 +95,7 @@
 
 .projects {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(2, minmax(150px, 1fr));
 }
 
 .projects article {
@@ -104,6 +104,12 @@
 
 .project-card a {
     color: var(--dark-theme);
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .projects-detailed-holder {
@@ -140,6 +146,7 @@
     background: #e3e3e3;
     padding: .5rem 1rem;
     border-radius: 10px;
+    color: black;
 }
 
 .projects-detailed-title a {

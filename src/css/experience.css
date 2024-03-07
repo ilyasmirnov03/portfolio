@@ -1,0 +1,29 @@
+/*=============================================
+=            Experience                       =
+=============================================*/
+
+job-experience {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 1rem;
+    padding: 0 1rem;
+
+    p {
+        margin-top: 0;
+        margin-bottom: .25rem
+    }
+
+    .title {
+        margin: 0;
+    }
+}
+
+job-experience .experience {
+    display: flex;
+    gap: 1rem;
+}
+
+job-experience .description {
+    max-width: 20rem;
+}

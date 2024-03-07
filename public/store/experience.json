@@ -1,0 +1,16 @@
+[
+    {
+        "company": "Solicis",
+        "type": "Alternance",
+        "from": "2023-06-19",
+        "to": "",
+        "description": "Développement de nouvelles fonctionnalités ou amélioration de fonctionnalités existantes et corrections de bugs en TypeScript 4+ et Angular 12+ pour un projet client ainsi que plusieurs projets internes sous des environnements de travail dockerisés et suivis du système de versioning git."
+    },
+    {
+        "company": "Solicis",
+        "type": "Stage",
+        "from": "2023-04-11",
+        "to": "2023-06-16",
+        "description": "Travail sur des applications internes. J'ai développé des interfaces en HTML, CSS et JavaScript purs. J'ai également participé au développement d'une application en Angular et NestJS en TypeScript. A l'issue de cette expérience, les interfaces que j'ai développé sont utilisées par les développeurs au sein de l'entreprise quotidiennement."
+    }
+]
