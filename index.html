@@ -58,7 +58,7 @@
         </li>
         <li>
           <span></span>
-          <a data-section="3" href="#contact">contact</a>
+          <a data-section="3" href="#moi">moi</a>
         </li>
       </ol>
     </nav>
@@ -90,43 +90,6 @@
     <section id="about" class="page custom-scroll">
       <span class="section-title">Expérience</span>
       <job-experience></job-experience>
-      <div class="about-holder">
-        <nav id="about-nav">
-          <ul class="flex">
-            <li data-about="0" class="active-about-nav">DEV<span class="about-extension">ELOPPEMENT</span><i
-                class="fa-solid fa-code"></i></li>
-            <li data-about="1">DES<span class="about-extension">IGN</span><i class="fa-solid fa-pen"></i></li>
-            <li data-about="2">MUS<span class="about-extension">IQUE</span><i class="fa-solid fa-music"></i></li>
-          </ul>
-        </nav>
-        <!-- dev -->
-        <div class="about-content active-about">
-          <h2>Compétences dev</h2>
-          <div>
-            <p>
-              Je suis compétent en bases de web front : HTML, CSS, JS avec utilisation des frameworks CSS Bootstrap et
-              Tailwind que j'ai utilisé pour des projets scolaires et personnels.
-            </p>
-          </div>
-        </div>
-        <!-- competences -->
-        <div class="about-content">
-          <h2>Compétences graphiques</h2>
-          <p>
-            Je sais utiliser plusieurs logiciels de création graphique comme illustrator, photoshop et figma que
-            j'utilise pour concevoir les maquettes de sites web que je développe par la suite
-          </p>
-        </div>
-        <!-- musique -->
-        <div class="about-content">
-          <h2>Passion musicale</h2>
-          <p>
-            Je suis passionné de musique et je joue de la guitare depuis 4 ans.
-          </p>
-        </div>
-      </div>
-
-      </div>
     </section>
 
     <!-- projects -->
@@ -137,9 +100,47 @@
 
     <!-- contact -->
     <section id="contact" class="page custom-scroll">
-      <span class="section-title">contact</span>
-      <div class="flex justify-center">
-        <div id="contact-resume" class="align-center">
+      <span class="section-title">moi</span>
+      <div class="flex">
+        <div class="about-holder">
+          <nav id="about-nav">
+            <ul class="flex">
+              <li data-about="0" class="active-about-nav">DEV<span class="about-extension">ELOPPEMENT</span><i
+                  class="fa-solid fa-code"></i></li>
+              <li data-about="1">DES<span class="about-extension">IGN</span><i class="fa-solid fa-pen"></i></li>
+              <li data-about="2">MUS<span class="about-extension">IQUE</span><i class="fa-solid fa-music"></i></li>
+            </ul>
+          </nav>
+          <!-- dev -->
+          <div class="about-content active-about">
+            <h2>Compétences dev</h2>
+            <div>
+              <p>
+                Je suis compétent en langages web tels que JavaScript et TypeScript, ainsi que dans l'environnement
+                Node.
+                Je suis apte dans des environnements dockerisés et je peux conteneuriser une application et ses
+                différents services.
+              </p>
+            </div>
+          </div>
+          <!-- competences -->
+          <div class="about-content">
+            <h2>Compétences graphiques</h2>
+            <p>
+              Je sais utiliser plusieurs logiciels de création graphique comme illustrator, photoshop et figma que
+              j'utilise pour concevoir les maquettes de sites web que je développe par la suite
+            </p>
+          </div>
+          <!-- musique -->
+          <div class="about-content">
+            <h2>Passion musicale</h2>
+            <p>
+              Je suis passionné de musique et je joue de la guitare depuis 4 ans.
+            </p>
+          </div>
+        </div>
+        <div id="contact-resume" class="p-5">
+          <p>Mon CV</p>
           <div class="flex-column" id="contact-buttons">
             <a href="/download/cv-ilya-smirnov.pdf" download class="btn">Télécharger le CV en PDF</a>
             <button class="btn" id="resume-share">Partager le CV</button>
@@ -147,6 +148,7 @@
           </div>
         </div>
       </div>
+      <p class="p-5">Contactez-moi en m'ecrivant un <a href="mailto:ilya.smirnov@etu.univ-poitiers.fr">mail</a></p>
     </section>
   </main>
   <script src="./main.js" type="module"></script>

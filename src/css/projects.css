@@ -96,6 +96,7 @@
 .projects {
     display: grid;
     grid-template-columns: repeat(2, minmax(150px, 1fr));
+    padding-right: 10rem;
 }
 
 .projects article {

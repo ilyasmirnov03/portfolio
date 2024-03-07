@@ -75,6 +75,10 @@ body::-webkit-scrollbar {
     color: var(--dark-theme);
 }
 
+.p-5 {
+    padding: 0.5rem;
+}
+
 /*=============================================
 =            __Utility Classes                =
 =============================================*/
@@ -288,6 +292,7 @@ body::-webkit-scrollbar {
 
 .about-holder {
     display: flex;
+    width: 50%;
 }
 
 #about-nav {
@@ -326,10 +331,6 @@ body::-webkit-scrollbar {
 #about-nav i {
     margin-top: .25rem;
     transform: rotate(90deg);
-}
-
-.about-content p {
-    width: 40%;
 }
 
 .about-content h2 {
@@ -485,6 +486,10 @@ body::-webkit-scrollbar {
 
     .projects-detailed-holder {
         min-width: 100%;
+    }
+
+    .projects {
+        padding-right: 0 !important;
     }
 
 

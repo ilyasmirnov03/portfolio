@@ -17,7 +17,7 @@ class JobExperience extends HTMLElement {
         experiences.forEach(experience => {
             const card = document.createElement('article');
             card.innerHTML = `
-                <p>${new Date(experience.from).toDateString()} - À: ${experience.to ? new Date(experience.to).toDateString() : 'Aujourd\'hui'}</p>
+                <p>${new Date(experience.from).toDateString()} - ${experience.to ? new Date(experience.to).toDateString() : 'Aujourd\'hui'}</p>
                 <div class="experience">
                     <div>
                         <h3 class="title">${experience.company} - ${experience.type}</h3>

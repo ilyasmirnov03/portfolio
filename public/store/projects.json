@@ -8,10 +8,11 @@
             "tailwind",
             "docker"
         ],
-        "preview": "alltheitems.webp",
+        "preview": "terrahub1.webp",
         "images": [
-            "alltheitems.webp",
-            "alltheitems2.webp"
+            "terrahub1.webp",
+            "terrahub2.webp",
+            "terrahub3.webp"
         ],
         "detailed_description": "Le projet Terrahub est un site web qui aide à la collecte de plus de 5.000 objets dans le jeu vidéo Terraria.Les données sont initialement récupéré du jeu en requête cURL et sont ensuite transformés en fichier JSON. La génération de données des objets se fait sur le serveur en langage PHP, ou on récupère ces données à partir d'une base de données MongoDB. Les objets collectés sont stockés dans une base de données locale IndexedDB et ne disparaîtront pas lorsque l'utilisateur quittera la page. L'application permet la collecte, la filtration par objet collecté et une barre de recherche qui permet de retrouver un objet par son nom. ",
         "link": "https://terrahub.me",
