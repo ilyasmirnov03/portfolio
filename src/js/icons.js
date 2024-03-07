@@ -17,4 +17,4 @@ const icons = [
 
 library.add(icons);
 
-dom.i2svg();
+window.addEventListener('DOMContentLoaded', dom.i2svg);

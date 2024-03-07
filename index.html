@@ -17,107 +17,7 @@
 <body>
   <div id="menu-bar">Menu</div>
   <div id="blackened"></div>
-  <div class="projects-detailed-holder">
-    <i class="fa-solid fa-xmark"></i>
-    <div data-project="1" class="projects-detailed">
-      <div class="projects-detailed-title">
-        <span>All Terraria Items</span>
-        <span>
-          <a target="_blank" href="https://github.com/ilyasmirnov03/terraria">
-            <i class="fa-brands fa-github"></i>
-          </a>
-        </span>
-      </div>
-      <div>
-        <img src="/images/alltheitems.webp" alt="Projet All the items">
-        <img src="/images/alltheitems2.webp" alt="La barre de recherce du projet All the items">
-      </div>
-      <p>
-        Le projet "All Terraria Items" est un site web qui aide à la collecte de plus de 5.000 objets dans le jeu vidéo
-        <i>Terraria</i>.
-        <br>
-        Les données sont initialement récupéré du site Wiki du jeu en requête cURL et sont ensuite transformés en
-        fichier JSON.
-        <br>
-        La génération de données des objets se fait sur le serveur en langage PHP, ou on récupère ces données à partir
-        d'une base de données MongoDB.
-        <br>
-        Les objets collectés sont stockés dans une base de données locale IndexedDB et ne disparaîtront pas lorsque
-        l'utilisateur quittera la page.
-        <br>
-        L'application permet la collecte, la filtration par objet collecté et une barre de recherche qui permet de
-        retrouver un objet par son nom.
-      </p>
-    </div>
-    <div data-project="2" class="projects-detailed">
-      <div class="projects-detailed-title">
-        <span>Musical Trainer</span>
-        <span>
-          <a target="_blank" href="https://github.com/ilyasmirnov03/musical-trainer">
-            <i class="fa-brands fa-github"></i>
-          </a>
-        </span>
-      </div>
-      <div>
-        <img src="/images/musicaltrainer2.webp" alt="Musical trainer en action">
-        <img src="/images/musicaltrainer3.webp" alt="Musical trainer avec la cle de fa">
-      </div>
-      <p>
-        Musical Trainer est une application qui aide à s'entraîner au solfège de manière ludique.
-        <br>
-        C'est mon premier projet personnel de développement web. Il est codé en HTML, CSS et JS purs.
-        <br>
-        Lorsque l'utilisateur clique sur le bouton du début du jeu, une note apparaît sur la portée. L'utilisateur doit
-        ensuite identifier la note par rapport à son emplacement sur la portée. Si la note saisie ne correspond pas à la
-        note affichée à la porte, le bouton devient rouge et la note reste sur la portée jusqu'au moment où
-        l'utilisateur identifie la bonne note. Quand l'utilisateur identifie bien la note, le jeu continue en générant
-        une autre note.
-      </p>
-    </div>
-    <div data-project="3" class="projects-detailed">
-      <div class="projects-detailed-title">
-        <span>Leaf Score</span>
-        <span>
-          <a target="_blank" href="https://github.com/ilyasmirnov03/dig-laplateforme">
-            <i class="fa-brands fa-github"></i>
-          </a>
-        </span>
-      </div>
-      <div>
-        <img src="/images/laplateforme1.webp" alt="Projet Leaf Score, le panier">
-        <img src="/images/laplateforme2.webp" alt="Projet Leaf Score, la page d'ajout de produit">
-      </div>
-      <p>
-        Leaf Score est un prototype de points de l'éco-responsabilité attribués à un panier de produits de client.
-        <br>
-        C'est un projet de groupe, dans lequel j'ai réalisé de maniere technique ce que nous avons réfléchi
-        collectivement.
-        <br>
-        Le projet consiste en proposition de prototype d'outil qui doit montrer l'éco-responsabilité du panier de
-        client, proposer un système de points de fidélité en lien avec les points d'éco-responsabilité du panier et
-        proposer d'arrondir la somme du panier au-dessus pour pouvoir donner la différence à une association.
-      </p>
-    </div>
-    <div data-project="4" class="projects-detailed">
-      <div class="projects-detailed-title">
-        <span>Green Solutions</span>
-      </div>
-      <div>
-        <img src="/images/greensolutions1.webp" alt="Page d'accueil de green solutions">
-        <img src="/images/greensolutions2.webp" alt="Musical trainer avec la cle de fa">
-      </div>
-      <p>
-        Green Solutions est une entreprise fictive qui propose des sites faits sous la contrainte du Green IT.
-        <br>
-        Le projet scolaire consistait en replication de design fourni en HTML et CSS avec creation de page simple en JS
-        et une page dynamique en PHP.
-      </p>
-    </div>
-  </div>
-  <div class="projects-detailed-img">
-    <i class="fa-solid fa-xmark"></i>
-    <img src="/images/alltheitems.webp" alt="Zoom sur l'image du projet">
-  </div>
+  <div class="projects-detailed-holder"></div>
   <!-- header -->
   <header id="header">
     <nav class="justify-center flex">
@@ -166,15 +66,14 @@
     <!-- landing -->
     <section id="landing" class="page custom-scroll">
       <h1 class="section-title">
-        ilya smirnov<span class="blinking">_</span><span id="landing-keywords">Développeur Front End.</span>
+        ilya smirnov<span class="blinking">_</span><span id="landing-keywords">Développeur Full Stack.</span>
       </h1>
 
       <div class="flex">
         <div id="landing-text">
           <p>
-            Je développe des sites web en utilisant JavaScript et PHP. Je crée
-            des designs purs et créatifs, et j'adore essayer des choses
-            inattendues.
+            Je développe des applications web en TypeScript se spécialisant en Angular et NestJS avec
+            une appétence pour la nouvelle technologie.
           </p>
           <a href="/download/cv-ilya-smirnov.pdf" target="_blank" class="btn">Voir mon CV</a>
         </div>
@@ -188,75 +87,7 @@
     <!-- projects -->
     <section id="projects" class="page custom-scroll">
       <span class="section-title">projets</span>
-      <div class="projects-holder">
-        <!-- 1 -->
-        <div data-project="1" class="main-wrapper projects-card justify-center">
-          <div class="projects-img-wrapper">
-            <img src="/images/alltheitems.webp" alt="All the items project">
-          </div>
-          <div>
-            <h3 class="projects-title">All Terraria Items</h3>
-            <div class="projects-languages">PHP JS MONGODB TAILWIND</div>
-            <p class="projects-text">
-              Site web qui aide à collecter tout les objets du jeu video <i>Terraria</i> en sauvegardant les objets
-              collectés dans la base de données locale IndexedDB.
-            </p>
-            <button class="btn projects-btn">Savoir plus</button>
-          </div>
-        </div>
-        <!-- 2 -->
-        <div data-project="2" class="main-wrapper projects-card justify-center">
-          <div class="projects-img-wrapper">
-            <img src="/images/musicaltrainer.webp" alt="Musical trainer project">
-          </div>
-          <div>
-            <h3 class="projects-title">Musical trainer</h3>
-            <div class="projects-languages">JS CSS HTML</div>
-            <p class="projects-text">
-              Outil qui aide à l'apprentissage du solfège à travers l'identification des notes affichées aléatoirement
-              sur la portée.
-            </p>
-            <button class="btn projects-btn">Savoir plus</button>
-          </div>
-        </div>
-        <!-- 3 -->
-        <div data-project="3" class="main-wrapper projects-card justify-center">
-          <div class="projects-img-wrapper">
-            <img src="/images/laplateforme1.webp" alt="Projet leaf score">
-          </div>
-          <div>
-            <h3 class="projects-title">Leaf Score</h3>
-            <div class="projects-languages">PHP CSS JS</div>
-            <p class="projects-text">
-              Projet scolaire, prototype de points d'éco-responsabilité attribués à un panier de produits de client pour
-              le site la plate-forme.
-            </p>
-            <button class="btn projects-btn">Savoir plus</button>
-          </div>
-        </div>
-        <!-- 4 -->
-        <div data-project="4" class="main-wrapper projects-card justify-center">
-          <div class="projects-img-wrapper">
-            <img src="/images/greensolutions1.webp" alt="Projet green solutions">
-          </div>
-          <div>
-            <h3 class="projects-title">Green Solutions</h3>
-            <div class="projects-languages">HTML CSS JS</div>
-            <p class="projects-text">
-              Projet scolaire, replication d'une page statique en HTML, CSS et JS.
-            </p>
-            <button class="btn projects-btn">Savoir plus</button>
-          </div>
-        </div>
-        <!-- end projects -->
-      </div>
-      <nav class="projects-all-nav">
-        <ul class="justify-center"></ul>
-      </nav>
-      <div class="arrows">
-        <i class="fa-solid fa-chevron-left" id="cl"></i>
-        <i class="fa-solid fa-chevron-right" id="cr"></i>
-      </div>
+      <portfolio-projects></portfolio-projects>
     </section>
 
     <!-- about -->
@@ -396,26 +227,6 @@
     <section id="contact" class="page custom-scroll">
       <span class="section-title">contact</span>
       <div class="flex justify-center">
-        <div id="contact-holder">
-          <p>Contactez-moi en envoyant un e-mail</p>
-          <form action="" method="post">
-            <div class="contact-input contact-double-input">
-              <div>
-                <input type="text" name="name" placeholder="Nom/Entreprise*" required>
-              </div>
-              <div>
-                <input type="email" name="email" placeholder="domain@host.com*" required>
-              </div>
-            </div>
-            <div class="contact-input">
-              <input type="text" name="subject" placeholder="Sujet">
-            </div>
-            <div class="contact-input">
-              <textarea name="message" placeholder="Message*" required></textarea>
-            </div>
-            <button class="btn">Envoyer</button>
-          </form>
-        </div>
         <div id="contact-resume" class="align-center">
           <div class="flex-column" id="contact-buttons">
             <a href="/download/cv-ilya-smirnov.pdf" download class="btn">Télécharger le CV en PDF</a>

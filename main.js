@@ -1,5 +1,6 @@
 import './src/js/icons.js';
 import './src/css/global.css';
+import './src/js/PortfolioProjects.js';
 
 (function () {
     const PTF = {
@@ -11,13 +12,10 @@ import './src/css/global.css';
         mobileMode: window.outerWidth < 810,
 
         init: function () {
-            console.log("Hello World!");
-            console.log(`Mobile mode: ${PTF.mobileMode}`);
             // setting sensible global variables
             PTF.currentSection = (PTF.sectionURL) ? Array.from(PTF.allSections).indexOf(document.querySelector(`#${PTF.sectionURL}`)) : 0;
             PTF.animationTime = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--animation-time").trim().split("ms")[0]);
             // CSS variables init
-            PTF.setProjectsAmount();
             // Dom manipulations
             if (window.outerWidth > PTF.mobileWidth) {
                 PTF.dNone();
@@ -57,19 +55,6 @@ import './src/css/global.css';
 
         // On mouse move apply effect
         enableMouseMove: true,
-        mouseMoveEffect: function (e) {
-            if (!PTF.enableMouseMove) return;
-
-            PTF.enableMouseMove = false;
-            let div = document.createElement("div");
-            div.textContent = "+";
-            div.classList.add("falling-x");
-            div.style.left = e.x + "px";
-            div.style.top = e.y + "px";
-            document.querySelector("body").appendChild(div);
-            div.addEventListener("animationend", () => { div.remove(); });
-            setTimeout(() => { PTF.enableMouseMove = true; }, 333);
-        },
 
         /**
          * 
@@ -184,54 +169,6 @@ import './src/css/global.css';
             };
         },
 
-        // Desktop projects horizontal scroll functions
-        currentProject: 0,
-        leftScroll: function () {
-            let selector = document.querySelectorAll(".projects-nav-dot");
-            selector[PTF.currentProject].classList.remove("active-project");
-            PTF.currentProject = (PTF.currentProject === 0) ? document.querySelectorAll(".projects-holder>div").length - 1 : PTF.currentProject - 1;
-            document.querySelector(".projects-holder").style.transform = `translateX(${PTF.currentProject * -100}%)`;
-            selector[PTF.currentProject].classList.add("active-project");
-        },
-        rightScroll: function () {
-            let selector = document.querySelectorAll(".projects-nav-dot");
-            selector[PTF.currentProject].classList.remove("active-project");
-            PTF.currentProject = (PTF.currentProject + 1 <= document.querySelectorAll(".projects-holder>div").length - 1) ? PTF.currentProject + 1 : 0;
-            document.querySelector(".projects-holder").style.transform = `translateX(${PTF.currentProject * -100}%)`;
-            selector[PTF.currentProject].classList.add("active-project");
-        },
-
-        // projects navigation setup
-        setProjectsAmount: function () {
-            document.documentElement.style.setProperty("--grid-projects", document.querySelectorAll(".projects-holder>div").length.toString());
-            document.querySelectorAll(".projects-holder>div").forEach((project, index) => {
-                let el = document.createElement("li");
-                let p = document.createElement("p");
-                el.insertAdjacentElement("beforeend", p);
-                el.classList.add("projects-nav-dot");
-                p.textContent = project.children[1].children[0].textContent;
-                document.querySelector(".projects-all-nav>ul").insertAdjacentElement("beforeend", el);
-                (index === 0) ? el.classList.add("active-project") : false;
-            });
-        },
-
-        // projects navigation click
-        projectsDotNavigation: function (e) {
-            if (e.target.tagName === "LI") {
-                let i = Array.from(document.querySelectorAll('.projects-nav-dot')).indexOf(e.target);
-
-                if (PTF.mobileMode) {
-                    document.querySelector('.projects-holder').scrollLeft = `${window.innerWidth * i}`;
-                    return;
-                }
-
-                document.querySelector(".projects-holder").style.transform = `translateX(${i * -100}%)`;
-                document.querySelector('.projects-nav-dot.active-project').classList.remove('active-project');
-                PTF.currentProject = i;
-                document.querySelectorAll('.projects-nav-dot')[i].classList.add('active-project');
-            }
-        },
-
         // Mobile Header (Menu) functions
         closeHeader: function () {
             document.querySelector("#header").style.transform = "";
@@ -247,14 +184,6 @@ import './src/css/global.css';
             } else if (h.style.transform !== "") {
                 PTF.closeHeader();
             }
-        },
-
-        // Mobile horizontal scroll
-        horizontalScroll: function (e) {
-            let clientRect = e.target.children[0].getBoundingClientRect();
-            document.querySelector(".projects-nav-dot.active-project").classList.remove("active-project");
-            PTF.currentProject = ((clientRect.left * -1 / clientRect.width) % 1 === 0) ? clientRect.left * -1 / clientRect.width : PTF.currentProject;
-            document.querySelectorAll(".projects-nav-dot")[PTF.currentProject].classList.add("active-project");
         },
 
         // navigation between sections in about page
@@ -325,17 +254,9 @@ import './src/css/global.css';
 
             document.querySelectorAll('.projects-detailed-holder img').forEach(img => img.addEventListener("click", PTF.imageZoomOpen));
 
-            document.querySelector('.projects-detailed-img>.fa-xmark').addEventListener("click", PTF.imageZoomClose);
-
             document.querySelectorAll('.projects-btn').forEach(btn => {
                 btn.addEventListener("click", PTF.detailedProjectOpen);
             });
-
-            document.querySelector('.projects-all-nav>ul').addEventListener("click", PTF.projectsDotNavigation);
-
-            document.querySelector('.projects-detailed-holder>.fa-xmark').addEventListener("click", PTF.detailedProjectClose);
-
-            document.querySelector('form').addEventListener("submit", PTF.handleContactForm);
 
             //mobile ev listeners
             if (window.outerWidth <= PTF.mobileWidth) {
@@ -347,14 +268,8 @@ import './src/css/global.css';
                         PTF.closeHeader();
                     }
                 });
-                document.querySelector(".projects-holder").addEventListener("scroll", PTF.horizontalScroll);
                 return;
             }
-            /* uncomment when done */
-            // document.addEventListener("mousemove", PTF.mouseMoveEffect);
-
-            document.querySelector("#cr").addEventListener("click", PTF.rightScroll);
-            document.querySelector("#cl").addEventListener("click", PTF.leftScroll);
 
             document.querySelector("main").addEventListener("wheel", PTF.scroll);
 
