@@ -1,0 +1,20 @@
+name: Deploy
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    runs-on: self-hosted
+
+    steps:
+      - uses: actions/checkout@v4
+        name: Checkout
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
