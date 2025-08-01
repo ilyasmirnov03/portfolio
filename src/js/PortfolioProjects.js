@@ -40,7 +40,7 @@ class PortfolioProjects extends HTMLElement {
           <h3>
             ${project.title}
             <a target="_blank" href="${project.github}">
-              <i class="fa-brands fa-github"></i>
+              <i class="fab fa-github"></i>
             </a>
           </h3>
           <p>${project.summary}</p>

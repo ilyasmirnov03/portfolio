@@ -9,11 +9,11 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "vite": "^5.1.4"
+    "vite": "7.0.6"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.5.1",
-    "@fortawesome/free-brands-svg-icons": "^6.5.1",
-    "@fortawesome/free-solid-svg-icons": "^6.5.1"
+    "@fortawesome/fontawesome-svg-core": "7.0.0",
+    "@fortawesome/free-brands-svg-icons": "7.0.0",
+    "@fortawesome/free-solid-svg-icons": "7.0.0"
   }
 }
