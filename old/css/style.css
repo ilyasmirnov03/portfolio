@@ -1,0 +1,552 @@
+/*=============================================
+=            __Global Declarations            =
+=============================================*/
+
+html {
+    font-size: 20px;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Lexend', sans-serif;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+:root {
+    --light-theme: #fafafa;
+    --dark-theme: #0e0e0e;
+    --gray-accent: #afafaf;
+    --complimentary: #5dc774;
+    --animation-time: 456ms;
+    --grid-projects: none;
+}
+
+br {
+    margin: .5rem 0;
+    display: block;
+}
+
+/*=============================================
+=            __Main Styles                    =
+=============================================*/
+
+body {
+    background-color: var(--light-theme);
+    color: var(--dark-theme);
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    margin: 0;
+    padding: 0;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.falling-x {
+    position: absolute;
+    pointer-events: none;
+    font-size: 2rem;
+    opacity: .2;
+    animation: 2s forwards falling-x;
+    z-index: 100;
+}
+
+.page {
+    min-height: 100vh;
+    width: 100%;
+    background-color: var(--light-theme);
+}
+
+.page.custom-scroll {
+    position: fixed;
+}
+
+.empty-btn {
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1.25rem;
+    cursor: pointer;
+    color: var(--dark-theme);
+}
+
+.p-5 {
+    padding: 0.5rem;
+}
+
+/*=============================================
+=            __Utility Classes                =
+=============================================*/
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.justify-center {
+    display: flex;
+    justify-content: center;
+}
+
+.align-center {
+    display: flex;
+    align-items: center;
+}
+
+.main-wrapper {
+    padding: 0 5rem;
+}
+
+.section-title {
+    font-size: clamp(3.6rem, 12vw + 1rem, 20rem);
+    display: block;
+    line-height: 1;
+    font-family: 'Oswald';
+    text-transform: uppercase;
+    color: rgb(202, 202, 202);
+    margin: 0 0 9vh 0;
+}
+
+.btn {
+    border: none;
+    font-weight: 300;
+    font-size: 120%;
+    border-radius: .5rem;
+    background-color: var(--dark-theme);
+    color: var(--light-theme);
+    padding: .25rem 2rem;
+    transition: .11s;
+}
+
+.btn:hover {
+    background-color: var(--complimentary);
+    cursor: pointer;
+}
+
+.active-project {
+    background-color: var(--complimentary) !important;
+    opacity: 1 !important;
+}
+
+/*=============================================
+=            __Header                         =
+=============================================*/
+
+#menu-bar {
+    display: none;
+    position: fixed;
+    top: 2.5%;
+    right: 5%;
+    z-index: 202;
+}
+
+#blackened {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    background-color: rgba(20, 20, 20, 0.322);
+    opacity: 0;
+    transition: .33s ease-in-out;
+    pointer-events: none;
+}
+
+#header {
+    height: 100%;
+    position: fixed;
+    right: 0;
+    padding: 0.2rem 1.7rem;
+    z-index: 200;
+    box-shadow: -1px 5px 5px rgba(63, 63, 63, 0.25);
+    transition: .33s ease-in-out;
+    background-color: var(--light-theme);
+}
+
+#header li {
+    cursor: pointer;
+}
+
+#header>nav {
+    flex-direction: column;
+}
+
+#socials,
+#navigation {
+    padding: 0;
+}
+
+#socials svg {
+    width: 24px;
+    height: 24px;
+    fill: var(--dark-theme);
+    color: var(--dark-theme);
+}
+
+#socials>li {
+    margin-bottom: 2vh;
+    text-align: center;
+}
+
+#navigation>li:first-of-type::before {
+    counter-set: item 0;
+}
+
+#navigation>li a {
+    padding: .25rem;
+    font-size: 66%;
+}
+
+#navigation>li {
+    white-space: nowrap;
+    counter-increment: item 1;
+    position: relative;
+}
+
+#navigation>li span::before {
+    display: block;
+    transform: translateY(50%);
+    padding-left: .25rem;
+    color: var(--dark-theme);
+    content: "0" counter(item);
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+#navigation>li:not(.active-section) a {
+    color: var(--dark-theme);
+}
+
+.active-section {
+    pointer-events: none;
+}
+
+.active-section span::before {
+    margin-bottom: .35rem;
+}
+
+.active-section a {
+    border-radius: .25rem;
+    background-color: var(--dark-theme);
+    color: var(--light-theme);
+}
+
+#navigation>li:hover a,
+#navigation>li:hover span::before {
+    color: var(--complimentary);
+}
+
+/*=============================================
+=            __Landing Section                =
+=============================================*/
+
+#landing {
+    padding: 0 1rem;
+}
+
+#landing-text {
+    width: 66%;
+}
+
+#landing-keywords {
+    font-size: 7vw;
+    text-transform: none;
+    width: 70%;
+    font-family: 'Oswald';
+    font-weight: 300;
+    margin-bottom: 2rem;
+    display: block;
+    color: var(--dark-theme);
+}
+
+#landing p {
+    font-size: 1.9rem;
+    font-weight: 300;
+    width: 66%;
+    text-align: justify;
+    margin: 0 0 2rem 0;
+}
+
+#landing-icons {
+    margin-top: 2vh;
+    opacity: .25;
+    width: 23%;
+    font-size: 22vw;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+/*=============================================
+=            __About Section                  =
+=============================================*/
+
+.about-holder {
+    display: flex;
+    width: 50%;
+}
+
+#about-nav {
+    writing-mode: vertical-lr;
+    height: fit-content;
+}
+
+#about-nav>ul {
+    border: 1px solid var(--dark-theme);
+    padding: 0;
+}
+
+#about-nav>ul>li {
+    padding: .50rem .25rem;
+    font-weight: 300;
+    cursor: pointer;
+}
+
+.about-extension {
+    display: none;
+}
+
+#about-nav>ul>li:not(.active-about-nav):hover {
+    color: var(--complimentary);
+}
+
+.active-about-nav {
+    background-color: var(--dark-theme);
+    color: var(--light-theme);
+}
+
+.active-about-nav>i {
+    color: var(--light-theme);
+}
+
+#about-nav i {
+    margin-top: .25rem;
+    transform: rotate(90deg);
+}
+
+.about-content h2 {
+    margin-top: 0;
+}
+
+.about-content:not(.active-about) {
+    display: none;
+}
+
+.active-about {
+    display: block;
+}
+
+/*=============================================
+=            __Contact                        =
+=============================================*/
+
+#contact-buttons>* {
+    margin-bottom: .55rem;
+    font-size: 110%;
+    text-align: center;
+}
+
+/*=============================================
+=            __Media Queries                  =
+=============================================*/
+
+@media screen and (max-width:830px) {
+    #landing h2 {
+        font-size: 16vw;
+        line-height: 16vw;
+    }
+
+    #landing p {
+        font-size: 1.4rem;
+    }
+}
+
+/*----------  Mobile  ----------*/
+
+@media screen and (max-width:810px) {
+
+
+    /*----------  Main  ----------*/
+
+    .page {
+        min-height: 100vh;
+        padding-bottom: 1rem;
+    }
+
+    /*----------  Header  ----------*/
+
+    #menu-bar {
+        display: block;
+    }
+
+    #header {
+        padding-top: 2rem;
+        transform: translateX(100%);
+    }
+
+    #navigation>li::before {
+        font-size: 5vw;
+    }
+
+    /*----------  Normal Scroll  ----------*/
+
+    .main-wrapper {
+        padding: 0 .5rem;
+    }
+
+    .active-section>a {
+        font-weight: 300;
+        text-shadow: none;
+    }
+
+    .active-section {
+        pointer-events: all;
+        transform: none;
+    }
+
+    .page.custom-scroll,
+    .page.custom-scroll.normal-scroll {
+        display: block;
+        position: relative;
+    }
+
+    /*----------  Landing  ----------*/
+
+    #landing {
+        padding: 0 1rem 1rem 1rem;
+    }
+
+    #landing-keywords {
+        font-size: inherit;
+        width: inherit;
+    }
+
+    /*----------  Projects Section ----------*/
+
+    .projects-title,
+    .projects-text,
+    .projects-card .btn {
+        margin: 0 auto;
+    }
+
+    .projects-holder {
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+    }
+
+    .projects-card {
+        scroll-snap-align: start;
+    }
+
+    .projects-title {
+        transform: translateX(0) translateY(-.5rem);
+        font-size: 250%;
+    }
+
+    .projects-languages {
+        text-align: center;
+    }
+
+    .projects-card,
+    .projects-card>div:nth-child(2) {
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .projects-text {
+        margin: 1rem auto;
+        width: 91%;
+    }
+
+    .projects-img-wrapper {
+        width: 80vw;
+        height: 25vh;
+        margin: 0;
+    }
+
+    .projects-all-nav {
+        margin-top: 2rem;
+    }
+
+    #projects>.arrows {
+        display: none;
+    }
+
+    .projects-detailed-holder {
+        min-width: 100%;
+    }
+
+    .projects {
+        padding-right: 0 !important;
+    }
+
+
+    /*----------  About  ----------*/
+
+    .about-icons {
+        width: 100%;
+        padding: 1rem 0;
+        box-shadow: -1px 0px 5px rgba(63, 63, 63, 0.25);
+        margin-left: 0;
+    }
+
+    .about-content p {
+        width: 90%;
+    }
+
+    .about-icons>div>img {
+        width: 3rem;
+        margin: 0 1.5rem;
+    }
+
+    /*----------  Contact  ----------*/
+
+    #contact>div {
+        width: 100%;
+    }
+
+    #contact-holder {
+        padding: 0 2rem;
+        font-size: 90%;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:620px) {
+
+    .section-title {
+        margin: 0 0 5vh 0;
+    }
+
+    /*----------  Langing Section  ----------*/
+
+    #landing-text {
+        width: 89%;
+    }
+
+    #landing h2 {
+        margin-bottom: 0;
+    }
+
+    #landing p {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:323px) {
+    #landing p {
+        font-size: 8vw;
+    }
+}
