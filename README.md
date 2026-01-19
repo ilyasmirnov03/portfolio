@@ -1,2 +1,2 @@
-# PORTFOLIO
-Personal portfolio used to showcase my projects and my web development skills.
+# Portfolio
+Personal website to share my work experience and blog.
