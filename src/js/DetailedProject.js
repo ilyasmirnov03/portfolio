@@ -18,7 +18,7 @@ export class DetailedProject extends HTMLElement {
 
     $project.innerHTML = `
             <button class="close empty-btn">
-                <i class="fas fa-xmark"></i>          
+                <i class="fas fa-xmark"></i>
             </button>
             <h3 class="projects-detailed-title">
                 ${this.project.title} - ${this.generateLink(this.project.link)}
