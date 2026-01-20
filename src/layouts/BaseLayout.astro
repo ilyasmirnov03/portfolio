@@ -1,14 +1,12 @@
 ---
-import type { CollectionEntry } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
-import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
+import LeftHeader from '../components/LeftHeader.astro';
 
-type Props = CollectionEntry<'blog'>['data'];
-
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
+<!doctype html>
 <html lang="en">
 	<head>
 		<BaseHead title={title} description={description} />
@@ -22,9 +20,33 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 	</head>
 
 	<body>
-		<Header />
-		<main>
-      <slot />
-		</main>
+    <div class="main-container">
+      <LeftHeader />
+      <div class="main-section">
+        <Header />
+        <main>
+          <section>
+            <slot />
+          </section>
+        </main>
+      </div>
+    </div>
 	</body>
 </html>
+
+<style>
+  .main-container {
+    display: flex;
+    min-height: 100dvh;
+  }
+
+  .main-section {
+    flex: 1;
+  }
+
+  main {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+  }
+</style>

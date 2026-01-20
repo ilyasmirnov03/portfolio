@@ -1,52 +1,21 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import LeftHeader from '../components/LeftHeader.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-    <div class="main-container">
-      <LeftHeader />
-      <div class="main-section">
-        <Header />
-        <main>
-          <section>
-            <h1>{SITE_TITLE}</h1>
-            <p>Software Engineer with 3 years of experience building and maintaining web applications, with a focus on backend and API development. I work mainly with <b>TypeScript</b>, <b>Node.js</b>, and <b>Go</b>, and have experience across the stack: from designing and implementing APIs to contributing to frontend features when needed.</p>
-            <ul>
-              <li><a href="/projects">Projects</a></li>
-              <li>-</li>
-              <li><a href="/blog">Blog</a></li>
-            </ul>
-          </section>
-        </main>
-      </div>
-    </div>
-	</body>
-</html>
+<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <section>
+    <h1>{SITE_TITLE}</h1>
+    <p>Software Engineer with 3 years of experience building and maintaining web applications, with a focus on backend and API development. I work mainly with <b>TypeScript</b>, <b>Node.js</b>, and <b>Go</b>, and have experience across the stack: from designing and implementing APIs to contributing to frontend features when needed.</p>
+    <ul>
+      <li><a href="/projects">Projects</a></li>
+      <li>-</li>
+      <li><a href="/blog">Blog</a></li>
+    </ul>
+  </section>
+</BaseLayout>
 
 <style>
-  .main-container {
-    display: flex;
-    min-height: 100dvh;
-  }
-
-  .main-section {
-    flex: 1;
-  }
-
-  main {
-    display: flex;
-    justify-content: center;
-    flex: 1;
-  }
-
   section {
     width: 720px;
   }
@@ -59,3 +28,4 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
     display: inline-block;
   }
 </style>
+
